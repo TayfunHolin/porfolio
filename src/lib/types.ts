@@ -33,11 +33,3 @@ export interface Experience {
   url?: string;
   skills?: string[];
 }
-
-export interface Illustration {
-  slug: string;
-  title: string;
-  description: string;
-  caption: string;
-  image: string;
-}

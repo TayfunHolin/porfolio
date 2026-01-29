@@ -26,7 +26,6 @@ All portfolio content lives in `src/content/` as Markdown files:
 - `works/{slug}/index.md` - Project case studies with images in `{slug}/images/`
 - `articles/index.md` - Blog articles (can auto-fetch from Medium)
 - `experience/index.md` - Work history
-- `illustrations/index.md` - Illustration portfolio
 - `about/index.md` - About page content
 - `home/index.md` - Homepage content
 
@@ -49,14 +48,14 @@ Projects use custom `<gallery>` and `<figure>` HTML tags in markdown content for
 Images in project content use relative paths (`./images/filename.jpg`) or external URLs. Vite's `import.meta.glob` eagerly resolves all project images at build time into a lookup map keyed by `{slug}:{filename}`. The `resolveProjectImagePath()` function maps relative paths to resolved URLs.
 
 ### Markdown Parsing
-Projects use a custom regex-based frontmatter parser (not gray-matter). Other content types (experience, articles, illustrations) split markdown by `# ` headings where each section represents one item, with `key: value` lines for fields.
+Projects use a custom regex-based frontmatter parser (not gray-matter). Other content types (experience, articles) split markdown by `# ` headings where each section represents one item, with `key: value` lines for fields.
 
 ### Routing
 React Router v7 with routes defined in `src/App.tsx`:
 - `/` - Home
 - `/works` - Portfolio grid
 - `/works/:slug` - Individual project
-- `/articles`, `/experience`, `/illustrations`, `/about`
+- `/articles`, `/experience`, `/about`
 
 ### Styling
 Tailwind CSS v4 with custom theme variables (CSS custom properties) in `src/index.css`. Dark mode via `.dark` class on `<html>`, toggled by `ThemeToggle` component with localStorage persistence. Use `.light-only` / `.dark-only` classes to show/hide elements per theme.

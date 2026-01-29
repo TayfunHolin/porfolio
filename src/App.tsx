@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { ScrollToTop } from './components/ScrollToTop';
-import { HomePage, WorksPage, ProjectPage, AboutPage, ExperiencePage, ArticlesPage, IllustrationsPage } from './pages';
+import { HomePage, WorksPage, ProjectPage, AboutPage, ExperiencePage, ArticlesPage } from './pages';
 
 function App() {
   return (
@@ -14,7 +14,6 @@ function App() {
           <Route path="works/:slug" element={<ProjectPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="articles" element={<ArticlesPage />} />
-          <Route path="illustrations" element={<IllustrationsPage />} />
           <Route path="experience" element={<ExperiencePage />} />
         </Route>
       </Routes>
