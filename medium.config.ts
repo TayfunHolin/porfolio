@@ -19,5 +19,5 @@
 
 export const config = {
   // Replace with your Medium username
-  username: "your-medium-username"
+  username: "@tayfun_holin"
 };
