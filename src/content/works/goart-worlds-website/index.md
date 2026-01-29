@@ -1,5 +1,5 @@
 ---
-title: "GoArt Worlds — Corporate Website"
+title: "GoArt Worlds "
 description: "Contributed to the UI/UX design of the GoArt Worlds corporate website. The project received 1st place and People's Favorite awards at the 22nd Altin Orumcek Awards, and won the 2024 Web Excellence Award for Creativity."
 company: "GoArt"
 category: "Website"
