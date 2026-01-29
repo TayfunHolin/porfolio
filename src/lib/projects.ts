@@ -4,10 +4,15 @@ import type { Project } from './types';
 import worksIndexMd from '../content/works/index.md?raw';
 
 // Import markdown files from project folders
-import mobileBankingMd from '../content/works/mobile-banking-app/index.md?raw';
-import ecommerceRedesignMd from '../content/works/ecommerce-redesign/index.md?raw';
-import designSystemMd from '../content/works/design-system/index.md?raw';
-import travelBookingMd from '../content/works/travel-booking-platform/index.md?raw';
+import gainMd from '../content/works/gain/index.md?raw';
+import goartMd from '../content/works/goart/index.md?raw';
+import marketplaceMd from '../content/works/marketplace/index.md?raw';
+import backOfficeMd from '../content/works/back-office/index.md?raw';
+import goartWebsiteMd from '../content/works/goart-worlds-website/index.md?raw';
+import kloudserMd from '../content/works/kloudser-ai/index.md?raw';
+import earnlinesMd from '../content/works/earnlines/index.md?raw';
+import carrefourMd from '../content/works/carrefour-skt/index.md?raw';
+import biletDukkaniMd from '../content/works/bilet-dukkani/index.md?raw';
 
 // Import all images using Vite's glob import
 const imageModules = import.meta.glob('../content/works/*/images/*.(jpg|jpeg|png|gif|webp|svg)', { eager: true, query: '?url', import: 'default' });
@@ -36,10 +41,15 @@ export function resolveProjectImagePath(relativePath: string, projectSlug: strin
 const resolveImagePath = resolveProjectImagePath;
 
 const projectFiles: Record<string, string> = {
-  'mobile-banking-app': mobileBankingMd,
-  'ecommerce-redesign': ecommerceRedesignMd,
-  'design-system': designSystemMd,
-  'travel-booking-platform': travelBookingMd,
+  'gain': gainMd,
+  'goart': goartMd,
+  'marketplace': marketplaceMd,
+  'back-office': backOfficeMd,
+  'goart-worlds-website': goartWebsiteMd,
+  'kloudser-ai': kloudserMd,
+  'earnlines': earnlinesMd,
+  'carrefour-skt': carrefourMd,
+  'bilet-dukkani': biletDukkaniMd,
 };
 
 function parseFrontmatter(content: string): { data: Record<string, unknown>; content: string } {
