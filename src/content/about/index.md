@@ -1,13 +1,13 @@
 # Profile
-name: Jonathan Doe
+name: Tayfun Holin
 handle: johndoe
 title: UI/UX Designer
 location: İstanbul, Türkiye
-email: hello@example.com
+email: tayfunholinworks@outlook.com
 avatar: https://picsum.photos/seed/avatar/400/400
 
 # Bio
-Hello! I'm Jonathan, a New York-based UI/UX designer with over 10 years of experience in crafting intuitive and engaging user interfaces. My expertise spans across web and mobile platforms, and I have a strong foundation in HTML, CSS, and a touch of JavaScript.
+Hello! I'm Tayfun, a New York-based UI/UX designer with over 10 years of experience in crafting intuitive and engaging user interfaces. My expertise spans across web and mobile platforms, and I have a strong foundation in HTML, CSS, and a touch of JavaScript.
 
 Throughout my career, I have had the privilege of designing for a diverse range of domains, including online media, e-commerce, fintech, banking, travel, retail, education, and technology.
 
