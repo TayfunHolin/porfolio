@@ -7,11 +7,13 @@ email: tayfun_holin@hotmail.com
 avatar: https://picsum.photos/seed/avatar/400/400
 
 # Bio
+
 Hello,
 I’m a UI/UX Designer based in Istanbul, with 4+ years of experience designing digital products across a wide range of industries, including e-commerce, OTT platforms, Web3 & cryptocurrency, metaverse, travel, back-office systems, and mobile applications.
 
-I specialize in building scalable, multi-brand design systems and robust design token structures that ensure consistency across platforms and products. By combining a user-centered design approach with strong product thinking, I create digital experiences that balance usability, scalability, and visual quality.
+I have a basic working knowledge of HTML and CSS, and I built this website myself using Vibe Coding, which allows me to design with a stronger understanding of development constraints and handoff processes.
 
+I specialize in building scalable, multi-brand design systems and robust design token structures that ensure consistency across platforms and products. Throughout my entire design process, I actively use AI-powered tools for research, ideation, validation, and iteration. By combining a user-centered design approach with strong product thinking, I create digital experiences that balance usability, scalability, and visual quality.
 
 # Quote
 text: Design is thinking made visual.
