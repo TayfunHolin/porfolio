@@ -3,13 +3,15 @@ name: Tayfun Holin
 handle: johndoe
 title: UI/UX Designer
 location: İstanbul, Türkiye
-email: tayfunholinworks@outlook.com
+email: tayfun_holin@hotmail.com
 avatar: https://picsum.photos/seed/avatar/400/400
 
 # Bio
-Hello! I'm Tayfun, a New York-based UI/UX designer with over 10 years of experience in crafting intuitive and engaging user interfaces. My expertise spans across web and mobile platforms, and I have a strong foundation in HTML, CSS, and a touch of JavaScript.
+Hello,
+I’m a UI/UX Designer based in Istanbul, with 4+ years of experience designing digital products across a wide range of industries, including e-commerce, OTT platforms, Web3 & cryptocurrency, metaverse, travel, back-office systems, and mobile applications.
 
-Throughout my career, I have had the privilege of designing for a diverse range of domains, including online media, e-commerce, fintech, banking, travel, retail, education, and technology.
+I specialize in building scalable, multi-brand design systems and robust design token structures that ensure consistency across platforms and products. By combining a user-centered design approach with strong product thinking, I create digital experiences that balance usability, scalability, and visual quality.
+
 
 # Quote
 text: Design is thinking made visual.
