@@ -8,8 +8,7 @@ avatar: https://picsum.photos/seed/avatar/400/400
 
 # Bio
 
-Hello,
-I’m a UI/UX Designer based in Istanbul, with 4+ years of experience designing digital products across a wide range of industries, including e-commerce, OTT platforms, Web3 & cryptocurrency, metaverse, travel, back-office systems, and mobile applications.
+Hello, I’m a UI/UX Designer based in Istanbul, with 4+ years of experience designing digital products across a wide range of industries, including e-commerce, OTT platforms, Web3 & cryptocurrency, metaverse, travel, back-office systems, and mobile applications.
 
 I have a basic working knowledge of HTML and CSS, and I built this website myself using Vibe Coding, which allows me to design with a stronger understanding of development constraints and handoff processes.
 
