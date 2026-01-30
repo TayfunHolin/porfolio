@@ -1,9 +1,9 @@
 ---
 title: UI/UX Designer
-location: New York, USA
+location: İstanbul, Türkiye
 headline: Crafting intuitive digital experiences that
 headlineAccent: users love
-subtitle: Hello! I'm Jonathan, a New York-based UI/UX designer with over 10 years of experience in crafting intuitive and engaging user interfaces.
+subtitle: Hello, I’m Tayfun. A UI/UX Designer based in Istanbul who designs products that scale, building user-centered digital experiences through strong product thinking, scalable design systems, and AI-driven workflows.
 ---
 
 # Quote
