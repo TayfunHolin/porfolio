@@ -2,7 +2,7 @@
 name: Jonathan Doe
 handle: johndoe
 title: UI/UX Designer
-location: New York, USA
+location: İstanbul, Türkiye
 email: hello@example.com
 avatar: https://picsum.photos/seed/avatar/400/400
 
