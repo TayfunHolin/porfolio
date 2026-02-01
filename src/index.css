@@ -181,3 +181,10 @@ i, em, .italic {
   background: none;
   padding: 0;
 }
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  opacity: 0.4;
+  margin: 2.5em 0;
+}
