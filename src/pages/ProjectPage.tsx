@@ -16,6 +16,7 @@ export function ProjectPage() {
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [coverLightbox, setCoverLightbox] = useState(false);
   const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
   useSEO({
@@ -60,7 +61,7 @@ export function ProjectPage() {
   }, [project, slug]);
 
   // Lock body scroll when lightbox is open
-  useBodyScrollLock(lightboxIndex !== null);
+  useBodyScrollLock(lightboxIndex !== null || coverLightbox);
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -256,11 +257,13 @@ export function ProjectPage() {
           className="max-w-7xl mx-auto px-6 pb-16"
         >
           <div className="overflow-hidden">
-            <img
-              src={project.coverImage}
-              alt={project.title}
-              className="w-full h-auto"
-            />
+            <button onClick={() => setCoverLightbox(true)} className="w-full cursor-zoom-in">
+              <img
+                src={project.coverImage}
+                alt={project.title}
+                className="w-full h-auto"
+              />
+            </button>
           </div>
         </motion.section>
       )}
@@ -352,6 +355,34 @@ export function ProjectPage() {
           </Link>
         </motion.div>
       </section>
+
+      {/* Cover Image Lightbox */}
+      <AnimatePresence>
+        {coverLightbox && project.coverImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-neutral-950/95 flex items-center justify-center"
+            onClick={() => setCoverLightbox(false)}
+          >
+            <button
+              onClick={() => setCoverLightbox(false)}
+              className="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors"
+              aria-label="Close lightbox"
+            >
+              <X size={28} />
+            </button>
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain"
+              onClick={(e) => e.stopPropagation()}
+              draggable={false}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Lightbox */}
       <AnimatePresence>
