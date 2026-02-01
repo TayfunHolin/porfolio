@@ -253,7 +253,7 @@ export function ProjectPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="max-w-3xl mx-auto px-6 pb-16"
+          className="max-w-7xl mx-auto px-6 pb-16"
         >
           <div className="overflow-hidden">
             <img
