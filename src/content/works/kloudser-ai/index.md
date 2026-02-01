@@ -4,7 +4,7 @@ description: "Led the end-to-end UX/UI design of Kloudser, a responsive web plat
 company: "Kloudser"
 category: "Web App"
 tags: ["AI", "SaaS", "Platform", "Web App", "UI/UX Design"]
-coverImage: "./images/Kloudser1.png"
+coverImage: "./images/Kloudser2.jpg"
 images: []
 order: 6
 year: "2024"
