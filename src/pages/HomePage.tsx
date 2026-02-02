@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
@@ -18,9 +18,6 @@ export function HomePage() {
     description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
   });
-  const { scrollY } = useScroll();
-  const imageOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { damping: 25, stiffness: 150 });
@@ -48,26 +45,6 @@ export function HomePage() {
             background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, rgba(168,85,247,0.3) 40%, transparent 70%)',
           }}
         />
-
-        {/* Decorative ornament */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          style={{ opacity: imageOpacity }}
-          className="hidden lg:block fixed top-24 right-0 translate-x-1/2 lg:w-[600px] pointer-events-none"
-        >
-          <img
-            src="/images/featured-image-for-light.svg"
-            alt=""
-            className="w-full h-auto light-only"
-          />
-          <img
-            src="/images/featured-image-for-dark.svg"
-            alt=""
-            className="w-full h-auto dark-only"
-          />
-        </motion.div>
 
         <div className="relative max-w-4xl">
           {/* Greeting */}
