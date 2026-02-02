@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient';
+import { ShaderGradientCanvas, ShaderGradient, presets } from '@shadergradient/react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects } from '@/lib/projects';
@@ -19,75 +19,65 @@ export function HomePage() {
     description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
   });
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { damping: 25, stiffness: 150 });
-  const springY = useSpring(mouseY, { damping: 25, stiffness: 150 });
+  // Subtle sphere follow
+  const sphereX = useMotionValue(0);
+  const sphereY = useMotionValue(0);
+  const sphereSpringX = useSpring(sphereX, { damping: 40, stiffness: 90 });
+  const sphereSpringY = useSpring(sphereY, { damping: 40, stiffness: 90 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left - 300);
-    mouseY.set(e.clientY - rect.top - 300);
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    sphereX.set((e.clientX - rect.left - centerX) * 0.5);
+    sphereY.set((e.clientY - rect.top - centerY) * 0.5);
   };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 lg:py-40 overflow-visible"
+        className="relative min-h-screen flex flex-col justify-center overflow-hidden -mt-24"
         onMouseMove={handleMouseMove}
       >
-        {/* Shader Gradient Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <ShaderGradientCanvas
-            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            pixelDensity={1}
-            fov={45}
-          >
-            <ShaderGradient
-              animate="on"
-              brightness={0.8}
-              cAzimuthAngle={270}
-              cDistance={0.5}
-              cPolarAngle={180}
-              cameraZoom={15.1}
-              color1="#73bfc4"
-              color2="#ff810a"
-              color3="#8da0ce"
-              envPreset="city"
-              grain="on"
-              lightType="env"
-              positionX={-0.1}
-              positionY={0}
-              positionZ={0}
-              reflection={0.4}
-              rotationX={0}
-              rotationY={130}
-              rotationZ={70}
-              shader="defaults"
-              type="sphere"
-              uAmplitude={3.2}
-              uDensity={0.8}
-              uFrequency={5.5}
-              uSpeed={0.3}
-              uStrength={0.3}
-              uTime={0}
-              wireframe={false}
-            />
-          </ShaderGradientCanvas>
+        {/* Glow behind sphere */}
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+          <div
+            className="w-[700px] h-[700px] rounded-full blur-[120px] opacity-50"
+            style={{
+              background: 'radial-gradient(circle, #8b5cf6 0%, #6366f1 30%, #3b82f6 60%, transparent 80%)',
+            }}
+          />
         </div>
 
-        {/* Mouse-following light */}
+        {/* Shader Gradient Background */}
         <motion.div
-          className="pointer-events-none absolute w-[600px] h-[600px] rounded-full opacity-30 dark:opacity-40 blur-[80px] will-change-transform"
+          className="absolute inset-0 pointer-events-none flex items-center justify-center will-change-transform"
+          style={{ x: sphereSpringX, y: sphereSpringY }}
+        >
+          <ShaderGradientCanvas
+            style={{ position: 'absolute', inset: 0 }}
+            pixelDensity={1.5}
+            fov={45}
+            pointerEvents="none"
+          >
+            <ShaderGradient {...(presets.interstella.props as any)} cDistance={2} cameraZoom={5} color1="#7c3aed" color2="#a855f7" color3="#6366f1" brightness={1.3} />
+          </ShaderGradientCanvas>
+        </motion.div>
+
+        {/* Blur layer to diffuse sphere into light glow */}
+        <div className="absolute inset-0 pointer-events-none backdrop-blur-2xl" />
+
+        {/* Black blur overlay between sphere and content */}
+        <div
+          className="absolute inset-0 pointer-events-none"
           style={{
-            left: springX,
-            top: springY,
-            background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, rgba(168,85,247,0.3) 40%, transparent 70%)',
+            background: 'radial-gradient(circle at center, transparent 5%, rgba(0,0,0,0.5) 18%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.98) 50%)',
           }}
         />
 
-        <div className="relative max-w-4xl">
+
+        <div className="relative max-w-4xl mx-auto px-6 w-full text-center">
           {/* Greeting */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -116,7 +106,7 @@ export function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl"
+            className="mt-8 text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
             {home.hero.subtitle}
           </motion.p>
@@ -126,7 +116,7 @@ export function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-10 flex flex-wrap gap-4 justify-center"
           >
             <Link
               to="/works"
@@ -145,22 +135,22 @@ export function HomePage() {
               <ArrowUpRight size={16} />
             </a>
           </motion.div>
-        </div>
 
-        {/* Quote */}
-        <motion.blockquote
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-24 pt-12 border-t border-border"
-        >
-          <p className="font-serif italic text-xl md:text-2xl text-text-secondary max-w-2xl">
-            "{home.quote.text}"
-          </p>
-          <cite className="mt-3 block text-sm text-text-tertiary not-italic">
-            — {home.quote.author}
-          </cite>
-        </motion.blockquote>
+          {/* Quote */}
+          <motion.blockquote
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-24 pt-12 border-t border-border"
+          >
+            <p className="font-serif italic text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto">
+              "{home.quote.text}"
+            </p>
+            <cite className="mt-3 block text-sm text-text-tertiary not-italic">
+              — {home.quote.author}
+            </cite>
+          </motion.blockquote>
+        </div>
       </section>
 
       {/* Featured Work Section */}
