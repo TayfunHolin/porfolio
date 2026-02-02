@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects } from '@/lib/projects';
@@ -36,6 +37,46 @@ export function HomePage() {
         className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 lg:py-40 overflow-visible"
         onMouseMove={handleMouseMove}
       >
+        {/* Shader Gradient Background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <ShaderGradientCanvas
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+            pixelDensity={1}
+            fov={45}
+          >
+            <ShaderGradient
+              animate="on"
+              brightness={0.8}
+              cAzimuthAngle={270}
+              cDistance={0.5}
+              cPolarAngle={180}
+              cameraZoom={15.1}
+              color1="#73bfc4"
+              color2="#ff810a"
+              color3="#8da0ce"
+              envPreset="city"
+              grain="on"
+              lightType="env"
+              positionX={-0.1}
+              positionY={0}
+              positionZ={0}
+              reflection={0.4}
+              rotationX={0}
+              rotationY={130}
+              rotationZ={70}
+              shader="defaults"
+              type="sphere"
+              uAmplitude={3.2}
+              uDensity={0.8}
+              uFrequency={5.5}
+              uSpeed={0.3}
+              uStrength={0.3}
+              uTime={0}
+              wireframe={false}
+            />
+          </ShaderGradientCanvas>
+        </div>
+
         {/* Mouse-following light */}
         <motion.div
           className="pointer-events-none absolute w-[600px] h-[600px] rounded-full opacity-30 dark:opacity-40 blur-[80px] will-change-transform"
