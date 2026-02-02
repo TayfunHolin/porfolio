@@ -7,22 +7,22 @@
   --font-serif: 'Geist Sans', system-ui, sans-serif;
   --font-sans: 'Geist Sans', system-ui, sans-serif;
 
-  --color-background: #FAFAFA;
-  --color-surface: #FFFFFF;
-  --color-text-primary: #0A0A0A;
-  --color-text-secondary: #525252;
-  --color-text-tertiary: #A3A3A3;
-  --color-border: #EBEBEB;
-  --color-accent: #f01947;
-}
-
-.dark {
-  --color-background: #1a1a1a;
-  --color-surface: #242424;
+  --color-background: #000000;
+  --color-surface: #0A0A0A;
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #b0b0b0;
   --color-text-tertiary: #808080;
-  --color-border: #252525;
+  --color-border: #1a1a1a;
+  --color-accent: #ff4d6d;
+}
+
+.dark {
+  --color-background: #000000;
+  --color-surface: #0A0A0A;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-tertiary: #808080;
+  --color-border: #1a1a1a;
   --color-accent: #ff4d6d;
 }
 
