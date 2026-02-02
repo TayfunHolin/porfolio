@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
@@ -21,10 +21,34 @@ export function HomePage() {
   const { scrollY } = useScroll();
   const imageOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { damping: 25, stiffness: 150 });
+  const springY = useSpring(mouseY, { damping: 25, stiffness: 150 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left - 300);
+    mouseY.set(e.clientY - rect.top - 300);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 lg:py-40 overflow-visible">
+      <section
+        className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 lg:py-40 overflow-visible"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Mouse-following light */}
+        <motion.div
+          className="pointer-events-none absolute w-[600px] h-[600px] rounded-full opacity-30 dark:opacity-40 blur-[80px] will-change-transform"
+          style={{
+            left: springX,
+            top: springY,
+            background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, rgba(168,85,247,0.3) 40%, transparent 70%)',
+          }}
+        />
+
         {/* Decorative ornament */}
         <motion.div
           initial={{ opacity: 0 }}
