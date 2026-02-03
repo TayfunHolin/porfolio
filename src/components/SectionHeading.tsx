@@ -17,7 +17,10 @@ export function SectionHeading({ label, title, description, align = 'left' }: Se
       className={`mb-12 ${align === 'center' ? 'text-center' : ''}`}
     >
       {label && (
-        <span className="inline-block text-xs font-sans uppercase text-text-tertiary mb-3">
+        <span
+          className="inline-block text-xs font-sans uppercase mb-3 bg-clip-text text-transparent"
+          style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #c4b5fd 25%, #93c5fd 55%, #818cf8 80%, #c084fc 100%)' }}
+        >
           {label}
         </span>
       )}

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ShaderGradientCanvas, ShaderGradient, presets } from '@shadergradient/react';
 import { getHomeContent } from '@/lib/home';
@@ -92,6 +92,14 @@ export function HomePage() {
     description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
   });
+  // Diamond parallax scroll
+  const worksRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: worksScroll } = useScroll({
+    target: worksRef,
+    offset: ['start end', 'end start'],
+  });
+  const diamondY = useTransform(worksScroll, [0, 1], ['0px', '900px']);
+
   // Subtle sphere follow
   const sphereX = useMotionValue(0);
   const sphereY = useMotionValue(0);
@@ -254,12 +262,69 @@ export function HomePage() {
       </section>
 
       {/* Featured Work Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <div className="mb-12">
+      <section ref={worksRef} className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 overflow-y-clip">
+        {/* Diamond shapes background */}
+        <motion.div className="absolute pointer-events-none" style={{ top: '800px', right: '-450px', y: diamondY }}>
+          {/* Solid glow layers */}
+          <div
+            className="absolute top-1/2 left-1/2 w-[1500px] h-[1500px]"
+            style={{
+              background: 'rgba(124, 58, 237, 0.25)',
+              transform: 'translate(-50%, -50%) rotate(45deg)',
+              filter: 'blur(80px)',
+            }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 w-[1020px] h-[1020px]"
+            style={{
+              background: 'rgba(99, 102, 241, 0.35)',
+              transform: 'translate(-50%, -50%) rotate(45deg)',
+              filter: 'blur(60px)',
+            }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 w-[560px] h-[560px]"
+            style={{
+              background: 'rgba(168, 85, 247, 0.45)',
+              transform: 'translate(-50%, -50%) rotate(45deg)',
+              filter: 'blur(40px)',
+            }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 w-[180px] h-[180px]"
+            style={{
+              background: 'rgba(255, 255, 255, 0.35)',
+              transform: 'translate(-50%, -50%) rotate(45deg)',
+              filter: 'blur(20px)',
+            }}
+          />
+          {/* Diamond line outlines */}
+          {Array.from({ length: 12 }).map((_, i) => {
+            const size = 200 + i * 120;
+            const opacity = 0.35 - i * 0.025;
+            const color = i % 3 === 0 ? '124, 58, 237' : i % 3 === 1 ? '99, 102, 241' : '168, 85, 247';
+            return (
+              <div
+                key={i}
+                className="absolute top-1/2 left-1/2"
+                style={{
+                  width: size,
+                  height: size,
+                  border: `1px solid rgba(${color}, ${Math.max(opacity, 0.04)})`,
+                  transform: 'translate(-50%, -50%) rotate(45deg)',
+                }}
+              />
+            );
+          })}
+        </motion.div>
+        <div className="mb-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <SectionHeading
             label={home.featuredWork.label}
             title={home.featuredWork.title}
           />
+          <p className="text-text-secondary text-sm leading-relaxed max-w-md md:text-right">
+            Showcasing scalable design systems, multi-platform experiences, and product decisions shaped by real user needs.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16">
