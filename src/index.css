@@ -252,3 +252,16 @@ i, em, .italic {
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
+
+/* CTA card animated glow */
+@keyframes cta-spin {
+  to { transform: rotate(360deg); }
+}
+.cta-card-glow {
+  opacity: 0;
+  animation: cta-spin 6s linear infinite;
+  transition: opacity 0.7s ease;
+}
+.cta-card:hover .cta-card-glow {
+  opacity: 0.15;
+}

@@ -224,22 +224,32 @@ export function HomePage() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <div className="flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center">
-              <h3 className="font-serif font-semibold text-xl text-text-primary">
-                Got a project in mind?
-              </h3>
-              <p className="mt-3 text-sm text-text-secondary leading-relaxed max-w-xs">
-                I'm always open to new ideas and collaborations. Let's build something great together.
-              </p>
-              <a
-                href={home.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors"
-              >
-                Let's talk
-                <ArrowUpRight size={14} />
-              </a>
+            <div className="cta-card relative flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center overflow-hidden hover:border-white/[0.16] transition-colors">
+              {/* Animated gradient background on hover */}
+              <div
+                className="cta-card-glow absolute inset-0"
+                style={{
+                  background: 'conic-gradient(from 0deg at 50% 50%, #7c3aed, #a855f7, #6366f1, #3b82f6, #7c3aed)',
+                  filter: 'blur(60px)',
+                }}
+              />
+              <div className="relative z-10">
+                <h3 className="font-serif font-semibold text-xl text-text-primary">
+                  Got a project in mind?
+                </h3>
+                <p className="mt-3 text-sm text-text-secondary leading-relaxed max-w-xs">
+                  I'm always open to new ideas and collaborations. Let's build something great together.
+                </p>
+                <a
+                  href={home.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors"
+                >
+                  Let's talk
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>
