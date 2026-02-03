@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
@@ -8,6 +9,75 @@ import { getFeaturedProjects, getProjects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeading } from '@/components/SectionHeading';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
+
+function CtaCard({ linkedin }: { linkedin: string }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const btnX = useMotionValue(0);
+  const btnY = useMotionValue(0);
+  const springX = useSpring(btnX, { damping: 20, stiffness: 150 });
+  const springY = useSpring(btnY, { damping: 20, stiffness: 150 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const padding = 8;
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const maxX = rect.width / 2 - padding;
+    const maxY = rect.height / 2 - padding;
+    btnX.set(Math.max(-maxX, Math.min(maxX, x)));
+    btnY.set(Math.max(-maxY, Math.min(maxY, y)));
+  };
+
+  const handleMouseLeave = () => {
+    btnX.set(0);
+    btnY.set(0);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="cta-card relative flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center overflow-hidden hover:border-white/[0.16] transition-colors cursor-none"
+      >
+        {/* Animated gradient background on hover */}
+        <div
+          className="cta-card-glow absolute inset-0"
+          style={{
+            background: 'conic-gradient(from 0deg at 50% 50%, #7c3aed, #a855f7, #6366f1, #3b82f6, #7c3aed)',
+            filter: 'blur(60px)',
+          }}
+        />
+        <div className="relative z-10">
+          <h3 className="font-serif font-semibold text-xl text-text-primary">
+            Got a project in mind?
+          </h3>
+          <p className="mt-3 text-sm text-text-secondary leading-relaxed max-w-xs">
+            I'm always open to new ideas and collaborations. Let's build something great together.
+          </p>
+        </div>
+        {/* Magnetic button */}
+        <motion.a
+          href={linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative z-10 mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors"
+          style={{ x: springX, y: springY }}
+        >
+          Let's talk
+          <ArrowUpRight size={14} />
+        </motion.a>
+      </div>
+    </motion.div>
+  );
+}
 
 export function HomePage() {
   const home = getHomeContent();
@@ -218,40 +288,7 @@ export function HomePage() {
           ))}
 
           {/* CTA placeholder card */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-          >
-            <div className="cta-card relative flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center overflow-hidden hover:border-white/[0.16] transition-colors">
-              {/* Animated gradient background on hover */}
-              <div
-                className="cta-card-glow absolute inset-0"
-                style={{
-                  background: 'conic-gradient(from 0deg at 50% 50%, #7c3aed, #a855f7, #6366f1, #3b82f6, #7c3aed)',
-                  filter: 'blur(60px)',
-                }}
-              />
-              <div className="relative z-10">
-                <h3 className="font-serif font-semibold text-xl text-text-primary">
-                  Got a project in mind?
-                </h3>
-                <p className="mt-3 text-sm text-text-secondary leading-relaxed max-w-xs">
-                  I'm always open to new ideas and collaborations. Let's build something great together.
-                </p>
-                <a
-                  href={home.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors"
-                >
-                  Let's talk
-                  <ArrowUpRight size={14} />
-                </a>
-              </div>
-            </div>
-          </motion.div>
+          <CtaCard linkedin={home.social.linkedin} />
         </div>
 
         <div className="mt-12 md:hidden">
