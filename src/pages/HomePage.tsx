@@ -107,7 +107,7 @@ export function HomePage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       {/* Hero Section */}
       <section
         className="relative min-h-screen flex flex-col justify-center overflow-hidden -mt-24"
