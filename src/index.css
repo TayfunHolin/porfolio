@@ -1,11 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css');
-
 @import "tailwindcss";
 
+/* Clarity City font */
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-RegularItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clarity City';
+  src: url('/fonts/ClarityCity-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
-  --font-serif: 'Geist Sans', system-ui, sans-serif;
-  --font-sans: 'Geist Sans', system-ui, sans-serif;
+  --font-serif: 'Clarity City', system-ui, sans-serif;
+  --font-sans: 'Clarity City', system-ui, sans-serif;
 
   --color-background: #000000;
   --color-surface: #0A0A0A;
@@ -64,9 +119,9 @@ body {
   color: var(--color-surface);
 }
 
-/* Italic text uses Instrument Serif */
+/* Italic text */
 i, em, .italic {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Clarity City', system-ui, sans-serif;
   font-style: italic;
 }
 
