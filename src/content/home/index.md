@@ -1,8 +1,8 @@
 ---
 title: UI/UX Designer
 location: İstanbul, Türkiye
-headline: Crafting intuitive digital experiences that
-headlineAccent: users love
+headline: Shaping ambition into products.
+headlineAccent: 
 subtitle: Hello, I’m Tayfun. A UI/UX Designer based in Istanbul who designs products that scale, building user-centered digital experiences through strong product thinking, scalable design systems, and AI-driven workflows.
 ---
 

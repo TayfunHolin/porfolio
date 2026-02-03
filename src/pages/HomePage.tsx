@@ -1,9 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ShaderGradientCanvas, ShaderGradient, presets } from '@shadergradient/react';
-import Lottie from 'lottie-react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects, getProjects } from '@/lib/projects';
@@ -91,14 +90,6 @@ export function HomePage() {
     description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
   });
-  // Load Lottie gradient background
-  const [gradientAnim, setGradientAnim] = useState<any>(null);
-  useEffect(() => {
-    fetch('/gradient-background.json')
-      .then(res => res.json())
-      .then(data => setGradientAnim(data));
-  }, []);
-
   // Subtle sphere follow
   const sphereX = useMotionValue(0);
   const sphereY = useMotionValue(0);
@@ -261,20 +252,7 @@ export function HomePage() {
       </section>
 
       {/* Featured Work Section */}
-      <section className="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
-        {/* Lottie gradient background */}
-        {gradientAnim && (
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-30">
-              <Lottie
-                animationData={gradientAnim}
-                loop
-                autoplay
-                style={{ width: '100%', height: '100%' }}
-              />
-            </div>
-          </div>
-        )}
+      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         <div className="mb-12">
           <SectionHeading
             label={home.featuredWork.label}
