@@ -19,7 +19,7 @@ text: Design is thinking made visual.
 author: Saul Bass
 
 # Social
-linkedin: https://www.linkedin.com/in/
+linkedin: https://www.linkedin.com/in/tayfunholin/
 github: https://github.com/
 twitter: https://twitter.com/
 patreon: https://www.patreon.com/

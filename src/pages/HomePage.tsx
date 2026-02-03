@@ -68,8 +68,9 @@ function CtaCard({ linkedin }: { linkedin: string }) {
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative z-10 mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors"
+          className="relative z-10 mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors pointer-events-auto cursor-pointer"
           style={{ x: springX, y: springY }}
+          onClick={(e) => { e.stopPropagation(); window.open(linkedin, '_blank'); }}
         >
           Let's talk
           <ArrowUpRight size={14} />

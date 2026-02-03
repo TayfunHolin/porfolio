@@ -24,4 +24,4 @@ description: Have a project in mind? I'd love to hear about it. Let's discuss ho
 buttonText: Connect on LinkedIn
 
 # Social
-linkedin: https://www.linkedin.com/in/
+linkedin: https://www.linkedin.com/in/tayfunholin/

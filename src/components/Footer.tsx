@@ -163,7 +163,7 @@ export function Footer() {
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <a
-            href="https://www.linkedin.com/in/selfishprimate/"
+            href="https://www.linkedin.com/in/tayfunholin/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-text-tertiary text-xs hover:text-accent transition-colors"

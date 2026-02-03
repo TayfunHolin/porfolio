@@ -12,7 +12,7 @@ Throughout my career, I have had the privilege of designing for a diverse range 
     author: "Jean-Louis Gassée"
   },
   social: {
-    linkedin: "https://www.linkedin.com/in/",
+    linkedin: "https://www.linkedin.com/in/tayfunholin/",
     github: "https://github.com/",
     twitter: "https://twitter.com/",
     patreon: "https://www.patreon.com/"
