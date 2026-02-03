@@ -150,25 +150,48 @@ export function HomePage() {
             </a>
           </motion.div>
 
-          {/* Quote */}
-          <motion.blockquote
+          {/* Brand logos marquee */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-24 pt-12 border-t border-white/[0.08]"
+            className="mt-24 pt-12 overflow-hidden"
           >
-            <p className="font-serif italic text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto">
-              "{home.quote.text}"
-            </p>
-            <cite className="mt-3 block text-sm text-text-tertiary not-italic">
-              — {home.quote.author}
-            </cite>
-          </motion.blockquote>
+            <div className="relative">
+              <div className="flex animate-marquee gap-16 items-center">
+                {[...Array(2)].map((_, setIndex) => (
+                  <div key={setIndex} className="flex gap-16 items-center shrink-0">
+                    {['Spotify', 'Slack', 'Notion', 'Figma', 'Stripe', 'Vercel'].map((brand) => (
+                      <div
+                        key={`${setIndex}-${brand}`}
+                        className="flex items-center gap-3 text-text-tertiary/50 shrink-0"
+                      >
+                        <div className="w-10 h-10 rounded-md bg-white/[0.06] flex items-center justify-center text-sm font-bold text-text-tertiary">
+                          {brand[0]}
+                        </div>
+                        <span className="text-base font-medium">{brand}</span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Featured Work Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <section className="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
+        {/* Diamond light */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 40% 60% at 50% 50%, #a855f7 0%, #7c3aed 25%, #6366f1 45%, transparent 70%)',
+            clipPath: 'polygon(50% 5%, 95% 50%, 50% 95%, 5% 50%)',
+            filter: 'blur(60px)',
+            opacity: 0.2,
+          }}
+        />
         <div className="flex items-end justify-between mb-12">
           <SectionHeading
             label={home.featuredWork.label}
@@ -185,12 +208,19 @@ export function HomePage() {
 
         <div className="grid md:grid-cols-2 gap-16">
           {featuredProjects.slice(0, 4).map((project, index) => (
-            <ProjectCard
+            <motion.div
               key={project.slug}
-              project={project}
-              index={index}
-              variant="featured"
-            />
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+            >
+              <ProjectCard
+                project={project}
+                index={index}
+                variant="featured"
+              />
+            </motion.div>
           ))}
         </div>
 
