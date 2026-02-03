@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ShaderGradientCanvas, ShaderGradient, presets } from '@shadergradient/react';
+import Lottie from 'lottie-react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects, getProjects } from '@/lib/projects';
@@ -90,6 +91,14 @@ export function HomePage() {
     description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
   });
+  // Load Lottie gradient background
+  const [gradientAnim, setGradientAnim] = useState<any>(null);
+  useEffect(() => {
+    fetch('/gradient-background.json')
+      .then(res => res.json())
+      .then(data => setGradientAnim(data));
+  }, []);
+
   // Subtle sphere follow
   const sphereX = useMotionValue(0);
   const sphereY = useMotionValue(0);
@@ -253,28 +262,24 @@ export function HomePage() {
 
       {/* Featured Work Section */}
       <section className="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
-        {/* Diamond light */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 40% 60% at 50% 50%, #a855f7 0%, #7c3aed 25%, #6366f1 45%, transparent 70%)',
-            clipPath: 'polygon(50% 5%, 95% 50%, 50% 95%, 5% 50%)',
-            filter: 'blur(60px)',
-            opacity: 0.2,
-          }}
-        />
-        <div className="flex items-end justify-between mb-12">
+        {/* Lottie gradient background */}
+        {gradientAnim && (
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-30">
+              <Lottie
+                animationData={gradientAnim}
+                loop
+                autoplay
+                style={{ width: '100%', height: '100%' }}
+              />
+            </div>
+          </div>
+        )}
+        <div className="mb-12">
           <SectionHeading
             label={home.featuredWork.label}
             title={home.featuredWork.title}
           />
-          <Link
-            to="/works"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
-          >
-            View all works
-            <ArrowRight size={16} />
-          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16">
@@ -291,7 +296,7 @@ export function HomePage() {
           <CtaCard linkedin={home.social.linkedin} />
         </div>
 
-        <div className="mt-12 md:hidden">
+        <div className="mt-12 flex justify-center">
           <Link
             to="/works"
             className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
