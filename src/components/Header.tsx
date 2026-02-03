@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { ThemeToggle } from './ThemeToggle';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 const navItems = [
@@ -119,12 +118,10 @@ export function Header() {
                   />
                 )}
               </div>
-              <ThemeToggle />
             </nav>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
-              <ThemeToggle />
               <button
                 onClick={() => setIsMenuOpen(true)}
                 className="p-2 rounded-full text-text-secondary hover:text-text-primary transition-colors"
