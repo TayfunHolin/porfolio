@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ShaderGradientCanvas, ShaderGradient, presets } from '@shadergradient/react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
-import { getFeaturedProjects } from '@/lib/projects';
+import { getFeaturedProjects, getProjects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeading } from '@/components/SectionHeading';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
@@ -12,6 +12,7 @@ import { useSEO, generateTitle } from '@/hooks/useSEO';
 export function HomePage() {
   const home = getHomeContent();
   const featuredProjects = getFeaturedProjects();
+  const allProjects = getProjects();
   const experiences = getExperiences();
 
   useSEO({
@@ -207,21 +208,40 @@ export function HomePage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-16">
-          {featuredProjects.slice(0, 4).map((project, index) => (
-            <motion.div
+          {allProjects.slice(0, 7).map((project, index) => (
+            <ProjectCard
               key={project.slug}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100% 0px 0px 0px' }}
-              transition={{ duration: 0.7, delay: index * 0.15, ease: 'easeOut' }}
-            >
-              <ProjectCard
-                project={project}
-                index={index}
-                variant="featured"
-              />
-            </motion.div>
+              project={project}
+              index={index}
+              variant="featured"
+            />
           ))}
+
+          {/* CTA placeholder card */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <div className="flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center">
+              <h3 className="font-serif font-semibold text-xl text-text-primary">
+                Got a project in mind?
+              </h3>
+              <p className="mt-3 text-sm text-text-secondary leading-relaxed max-w-xs">
+                I'm always open to new ideas and collaborations. Let's build something great together.
+              </p>
+              <a
+                href={home.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors"
+              >
+                Let's talk
+                <ArrowUpRight size={14} />
+              </a>
+            </div>
+          </motion.div>
         </div>
 
         <div className="mt-12 md:hidden">

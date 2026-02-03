@@ -11,20 +11,45 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index, variant = 'default' }: ProjectCardProps) {
   const isFeatured = variant === 'featured';
+  const cardVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0 },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { clipPath: 'inset(0 0 100% 0)' },
+    visible: {
+      clipPath: 'inset(0 0 0% 0)',
+      transition: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.9, delay: 1.0, ease: 'easeOut' },
+    },
+  };
 
   return (
-    <article>
+    <motion.article
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <Link
         to={`/works/${project.slug}`}
         className={`group block ${isFeatured ? '' : ''}`}
       >
         {/* Image Container - reveals top to bottom */}
         <motion.div
-          className="relative overflow-hidden bg-border"
-          initial={{ clipPath: 'inset(0 0 100% 0)' }}
-          whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+          className="relative overflow-hidden bg-border rounded-lg"
+          variants={imageVariants}
         >
           {project.coverImage && (
             <img
@@ -57,13 +82,10 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
           </div>
         </motion.div>
 
-        {/* Content - slides up after image reveals */}
+        {/* Content - slides up after image fully reveals */}
         <motion.div
           className="mt-5"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+          variants={contentVariants}
         >
           <p className="text-xs font-sans text-text-tertiary mb-2 uppercase">
             {project.company}, {project.year}
@@ -80,6 +102,6 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
           </p>
         </motion.div>
       </Link>
-    </article>
+    </motion.article>
   );
 }
