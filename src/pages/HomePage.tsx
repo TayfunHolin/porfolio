@@ -271,7 +271,7 @@ export function HomePage() {
             style={{
               background: 'rgba(124, 58, 237, 0.25)',
               transform: 'translate(-50%, -50%) rotate(45deg)',
-              filter: 'blur(80px)',
+              filter: 'blur(120px)',
             }}
           />
           <div
@@ -279,7 +279,7 @@ export function HomePage() {
             style={{
               background: 'rgba(99, 102, 241, 0.35)',
               transform: 'translate(-50%, -50%) rotate(45deg)',
-              filter: 'blur(60px)',
+              filter: 'blur(90px)',
             }}
           />
           <div
@@ -287,7 +287,7 @@ export function HomePage() {
             style={{
               background: 'rgba(168, 85, 247, 0.45)',
               transform: 'translate(-50%, -50%) rotate(45deg)',
-              filter: 'blur(40px)',
+              filter: 'blur(60px)',
             }}
           />
           <div
@@ -295,7 +295,7 @@ export function HomePage() {
             style={{
               background: 'rgba(255, 255, 255, 0.35)',
               transform: 'translate(-50%, -50%) rotate(45deg)',
-              filter: 'blur(20px)',
+              filter: 'blur(35px)',
             }}
           />
           {/* Diamond line outlines */}
@@ -306,12 +306,13 @@ export function HomePage() {
             return (
               <div
                 key={i}
-                className="absolute top-1/2 left-1/2"
+                className="absolute top-1/2 left-1/2 diamond-line"
                 style={{
                   width: size,
                   height: size,
                   border: `1px solid rgba(${color}, ${Math.max(opacity, 0.04)})`,
                   transform: 'translate(-50%, -50%) rotate(45deg)',
+                  animationDelay: `${i * 0.4}s`,
                 }}
               />
             );

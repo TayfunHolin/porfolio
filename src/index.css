@@ -266,4 +266,13 @@ i, em, .italic {
   opacity: 0.15;
 }
 
+/* Diamond line shimmer */
+.diamond-line {
+  animation: diamond-shimmer 6s ease-in-out infinite;
+}
+@keyframes diamond-shimmer {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) rotate(45deg) scale(1.03); }
+}
+
 /* Works section animated gradient blobs */
