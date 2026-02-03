@@ -11,7 +11,7 @@ import { SectionHeading } from '@/components/SectionHeading';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 function CtaCard({ linkedin }: { linkedin: string }) {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const btnX = useMotionValue(0);
   const btnY = useMotionValue(0);
   const springX = useSpring(btnX, { damping: 20, stiffness: 150 });
@@ -41,11 +41,14 @@ function CtaCard({ linkedin }: { linkedin: string }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
     >
-      <div
+      <a
         ref={cardRef}
+        href={linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="cta-card relative flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center overflow-hidden hover:border-white/[0.16] transition-colors cursor-none"
+        className="cta-card relative flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center overflow-hidden hover:border-white/[0.16] transition-colors cursor-pointer"
       >
         {/* Animated gradient background on hover */}
         <div
@@ -64,18 +67,16 @@ function CtaCard({ linkedin }: { linkedin: string }) {
           </p>
         </div>
         {/* Magnetic button */}
-        <motion.a
-          href={linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative z-10 mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full hover:bg-white/[0.12] transition-colors pointer-events-auto cursor-pointer"
+        <motion.div
+          className="relative z-10 mt-5"
           style={{ x: springX, y: springY }}
-          onClick={(e) => { e.stopPropagation(); window.open(linkedin, '_blank'); }}
         >
-          Let's talk
-          <ArrowUpRight size={14} />
-        </motion.a>
-      </div>
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/[0.06] border border-white/[0.1] text-sm text-text-primary rounded-full group-hover:bg-white/[0.12] transition-colors">
+            Let's talk
+            <ArrowUpRight size={14} />
+          </span>
+        </motion.div>
+      </a>
     </motion.div>
   );
 }
