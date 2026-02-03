@@ -59,8 +59,8 @@ export function Header() {
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       >
-        <div className={`max-w-6xl mx-auto px-6 transition-all duration-500 ${
-          isScrolled ? 'py-3 mt-3 mx-6 lg:mx-auto bg-surface/70 backdrop-blur-xl border border-white/[0.06] rounded-2xl' : 'py-6'
+        <div className={`max-w-6xl mx-auto transition-all duration-500 ${
+          isScrolled ? 'py-3 mt-3 px-6 bg-surface/70 backdrop-blur-xl border border-white/[0.06] rounded-2xl' : 'py-6 px-6'
         }`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
