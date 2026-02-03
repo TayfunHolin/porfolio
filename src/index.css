@@ -253,18 +253,6 @@ i, em, .italic {
   animation: marquee 20s linear infinite;
 }
 
-/* CTA card animated glow */
-@keyframes cta-spin {
-  to { transform: rotate(360deg); }
-}
-.cta-card-glow {
-  opacity: 0;
-  animation: cta-spin 6s linear infinite;
-  transition: opacity 0.7s ease;
-}
-.cta-card:hover .cta-card-glow {
-  opacity: 0.15;
-}
 
 /* Diamond line shimmer */
 .diamond-line {
@@ -272,7 +260,9 @@ i, em, .italic {
 }
 @keyframes diamond-shimmer {
   0%, 100% { opacity: 1; transform: translate(-50%, -50%) rotate(45deg) scale(1); }
-  50% { opacity: 0.5; transform: translate(-50%, -50%) rotate(45deg) scale(1.03); }
+  25% { opacity: 0.3; transform: translate(-50%, -50%) rotate(45deg) scale(1.06); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) rotate(45deg) scale(0.97); }
+  75% { opacity: 0.4; transform: translate(-50%, -50%) rotate(45deg) scale(1.04); }
 }
 
 /* Works section animated gradient blobs */
