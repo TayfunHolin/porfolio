@@ -78,11 +78,25 @@ export function HomePage() {
 
 
         <div className="relative max-w-4xl mx-auto px-6 w-full text-center">
-          {/* Greeting */}
+          {/* Available badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-sm text-text-secondary"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+            Available to work
+          </motion.div>
+
+          {/* Greeting */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
             className="mb-6"
           >
             <span className="text-text-tertiary font-sans text-sm uppercase">
@@ -95,7 +109,7 @@ export function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-text-primary leading-[1.1]"
+            className="font-serif font-semibold text-[32px] md:text-[48px] lg:text-[56px] xl:text-[64px] text-text-primary leading-[1.1]"
           >
             {home.hero.headline}{' '}
             <span className="italic text-accent">{home.hero.headlineAccent}</span>
@@ -106,7 +120,7 @@ export function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+            className="mt-8 text-text-secondary text-[16px] md:text-[18px] leading-relaxed max-w-2xl mx-auto"
           >
             {home.hero.subtitle}
           </motion.p>
@@ -141,7 +155,7 @@ export function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-24 pt-12 border-t border-border"
+            className="mt-24 pt-12 border-t border-white/[0.08]"
           >
             <p className="font-serif italic text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto">
               "{home.quote.text}"
