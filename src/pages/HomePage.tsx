@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ShaderGradientCanvas, ShaderGradient, presets } from '@shadergradient/react';
+import GoArtLogo from '@/GoArt.svg';
+import TKOOPLogo from '@/TKOOP.svg';
+import RoofstacksLogo from '@/Roofstacks.svg';
+import CarrefourSALogo from '@/CarrefourSA.svg';
+import GainLogo from '@/Gain.svg';
+import BiletDukkaniLogo from '@/Bilet Dükkanı.svg';
+import UnlimitedBikingLogo from '@/Unlimited Biking.svg';
+import EarnlinesLogo from '@/Earnlines.svg';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects, getProjects } from '@/lib/projects';
@@ -172,7 +180,10 @@ export function HomePage() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="mb-6"
           >
-            <span className="text-text-tertiary font-sans text-sm uppercase">
+            <span
+              className="font-sans text-sm uppercase bg-clip-text text-transparent"
+              style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #c4b5fd 25%, #93c5fd 55%, #818cf8 80%, #c084fc 100%)' }}
+            >
               {home.hero.title} — {home.hero.location}
             </span>
           </motion.div>
@@ -207,7 +218,7 @@ export function HomePage() {
           >
             <Link
               to="/works"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-surface font-sans text-sm font-semibold rounded-full hover:bg-text-secondary transition-colors"
             >
               View My Works
               <ArrowRight size={16} />
@@ -216,7 +227,7 @@ export function HomePage() {
               href={home.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.08] text-text-primary font-sans text-sm font-semibold rounded-full hover:bg-border/50 transition-colors backdrop-blur-md bg-white/[0.04]"
             >
               LinkedIn
               <ArrowUpRight size={16} />
@@ -232,17 +243,23 @@ export function HomePage() {
           >
             <div className="relative">
               <div className="flex animate-marquee gap-16 items-center">
-                {[...Array(2)].map((_, setIndex) => (
+                {[...Array(3)].map((_, setIndex) => (
                   <div key={setIndex} className="flex gap-16 items-center shrink-0">
-                    {['Spotify', 'Slack', 'Notion', 'Figma', 'Stripe', 'Vercel'].map((brand) => (
+                    {[
+                      { name: 'GoArt', logo: GoArtLogo },
+                      { name: 'TKOOP', logo: TKOOPLogo },
+                      { name: 'Roofstacks', logo: RoofstacksLogo },
+                      { name: 'CarrefourSA', logo: CarrefourSALogo },
+                      { name: 'Gain', logo: GainLogo },
+                      { name: 'Bilet Dükkanı', logo: BiletDukkaniLogo },
+                      { name: 'Unlimited Biking', logo: UnlimitedBikingLogo },
+                      { name: 'Earnlines', logo: EarnlinesLogo },
+                    ].map((brand) => (
                       <div
-                        key={`${setIndex}-${brand}`}
-                        className="flex items-center gap-3 text-text-tertiary/50 shrink-0"
+                        key={`${setIndex}-${brand.name}`}
+                        className="shrink-0 opacity-50 hover:opacity-80 transition-opacity"
                       >
-                        <div className="w-10 h-10 rounded-md bg-white/[0.06] flex items-center justify-center text-sm font-bold text-text-tertiary">
-                          {brand[0]}
-                        </div>
-                        <span className="text-base font-medium">{brand}</span>
+                        <img src={brand.logo} alt={brand.name} className="h-12 w-auto" />
                       </div>
                     ))}
                   </div>
