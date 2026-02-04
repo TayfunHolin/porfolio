@@ -327,12 +327,13 @@ export function HomePage() {
             );
           })}
         </motion.div>
-        <div className="mb-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div className="mb-12 text-center">
           <SectionHeading
             label={home.featuredWork.label}
             title={home.featuredWork.title}
+            align="center"
           />
-          <p className="text-text-secondary text-sm leading-relaxed max-w-md md:text-right">
+          <p className="text-text-secondary text-sm leading-relaxed max-w-md mx-auto -mt-8">
             Showcasing scalable design systems, multi-platform experiences, and product decisions shaped by real user needs.
           </p>
         </div>
@@ -364,12 +365,15 @@ export function HomePage() {
 
       {/* Experience Preview */}
       <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <SectionHeading
-          label={home.experiencePreview.label}
-          title={home.experiencePreview.title}
-        />
+        <div className="flex flex-col md:flex-row md:items-start gap-12">
+          <div className="md:w-1/3 md:sticky md:top-32">
+            <SectionHeading
+              label={home.experiencePreview.label}
+              title={home.experiencePreview.title}
+            />
+          </div>
 
-        <div className="grid max-w-3xl">
+        <div className="md:w-2/3 grid">
           {experiences.slice(0, 4).map((exp, index) => {
             const content = (
               <>
@@ -425,8 +429,6 @@ export function HomePage() {
               </motion.div>
             );
           })}
-        </div>
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -441,6 +443,8 @@ export function HomePage() {
             <ArrowRight size={16} />
           </Link>
         </motion.div>
+        </div>
+        </div>
       </section>
 
       {/* CTA Section */}
