@@ -365,16 +365,17 @@ export function HomePage() {
 
       {/* Experience Preview */}
       <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <div className="flex flex-col md:flex-row md:items-start gap-12">
+        <div className="flex flex-col md:flex-row md:items-start gap-16">
           <div className="md:w-1/3 md:sticky md:top-32">
             <SectionHeading
               label={home.experiencePreview.label}
               title={home.experiencePreview.title}
+              description="Experience building and scaling products from concept to production."
             />
           </div>
 
         <div className="md:w-2/3 grid">
-          {experiences.slice(0, 4).map((exp, index) => {
+          {experiences.slice(0, 3).map((exp, index) => {
             const content = (
               <>
                 {exp.logo && (

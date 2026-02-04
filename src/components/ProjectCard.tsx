@@ -22,7 +22,7 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
     hidden: { clipPath: 'inset(0 0 100% 0)' },
     visible: {
       clipPath: 'inset(0 0 0% 0)',
-      transition: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] },
+      transition: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] as const },
     },
   };
 
@@ -31,7 +31,7 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.9, delay: 1.0, ease: 'easeOut' },
+      transition: { duration: 0.9, delay: 1.0, ease: 'easeOut' as const },
     },
   };
 

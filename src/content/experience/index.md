@@ -23,13 +23,13 @@ description: Designed user interfaces for web and mobile applications across div
 skills: UI/UX Design, Wireframing, Prototyping, Adobe XD, Sketch
 
 # Startup Studios
-role: Product Designer
-period: Jun 2017 — Feb 2019
-location: Austin, USA
+role: Intern UI/UX Designer
+period: Jun 2023 — Sep 2023
+location: İstanbul, Türkiye
 logo: https://picsum.photos/seed/company3/100/100
 url: https://example.com/
-description: Full-stack product design for early-stage startups. Responsible for the entire design process from user research to final implementation, working closely with development teams.
-skills: Product Design, UX Research, UI Design, Figma, HTML/CSS
+description: In this role , I contributed to the design of GoArt back-office screens , completing both desktop and responsive designs.
+skills: Product Design, UX Research, UI Design, Figma
 
 # Creative Web Agency
 role: Web Designer
