@@ -379,7 +379,7 @@ export function HomePage() {
             const content = (
               <>
                 {exp.logo && (
-                  <div className="w-16 h-16 bg-border overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-16 overflow-hidden flex-shrink-0">
                     <img
                       src={exp.logo}
                       alt={exp.company}

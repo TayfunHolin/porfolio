@@ -4,29 +4,29 @@ title: Work Experience
 description: Crafting intuitive interfaces across various industries including e-commerce, fintech, travel, and technology.
 ---
 
-# TechCorp Inc.
-role: Senior UI/UX Designer
-period: Jan 2022 — Present
+# RoofStacks.
+role: UI/UX Designer
+period: Jan 2025 — Jan 2026
 location: New York, USA
-logo: https://picsum.photos/seed/company1/100/100
+logo: ./images/roofstacks.svg
 url: https://example.com/
 description: Leading design initiatives for enterprise software solutions. Spearheading design system development and mentoring junior designers while collaborating across teams to deliver user-centered solutions.
 skills: UI/UX Design, Design Systems, Prototyping, User Research, Figma
 
-# Digital Agency Co.
-role: UI/UX Designer
-period: Mar 2019 — Dec 2021
-location: San Francisco, USA
-logo: https://picsum.photos/seed/company2/100/100
+# GoArt Worlds
+role: Junior UI/UX Designer
+period: Sep 2023 — Dec 2024
+location: İstanbul, Türkiye
+logo: ./images/goart.svg
 url: https://example.com/
-description: Designed user interfaces for web and mobile applications across diverse client projects. Conducted user research, created wireframes, and delivered high-fidelity prototypes.
+description: In this role, I actively contributed to end-to-end design processes across GoArt back office, the GoArt mobile application, the GoArt marketplace, and the GoArt website. I worked on user flows, interface designs, and design system components to ensure a consistent and seamless user experience across platforms.
 skills: UI/UX Design, Wireframing, Prototyping, Adobe XD, Sketch
 
-# Startup Studios
+# GoArt Worlds
 role: Intern UI/UX Designer
 period: Jun 2023 — Sep 2023
 location: İstanbul, Türkiye
-logo: https://picsum.photos/seed/company3/100/100
+logo: ./images/goart.svg
 url: https://example.com/
 description: In this role , I contributed to the design of GoArt back-office screens , completing both desktop and responsive designs.
 skills: Product Design, UX Research, UI Design, Figma
