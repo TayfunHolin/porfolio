@@ -356,8 +356,8 @@ export function ProjectPage() {
         <div className="flex gap-12">
           {/* Sticky Navigation */}
           {headings.length > 0 && (
-            <nav className="hidden lg:block w-48 flex-shrink-0">
-              <div className="sticky top-32 border border-border rounded-lg p-5">
+            <nav className="hidden lg:block w-[250px] flex-shrink-0">
+              <div className="sticky top-32 border border-border rounded-lg p-5 bg-surface">
                 <p className="text-xs font-sans uppercase text-text-tertiary mb-4">{project.title}</p>
                 <div className="w-full h-px bg-border mb-4" />
                 <div className="flex gap-3">
@@ -375,7 +375,7 @@ export function ProjectPage() {
                       }}
                     />
                   </div>
-                  <ul className="flex flex-col space-y-3">
+                  <ul className="flex flex-col space-y-4">
                     {headings.map(({ id, title }, index) => {
                       const activeIndex = headings.findIndex(h => h.id === activeSection);
                       const isActive = activeIndex >= 0 && index <= activeIndex;
@@ -389,7 +389,7 @@ export function ProjectPage() {
                           />
                           <button
                             onClick={() => scrollToSection(id)}
-                            className={`text-xs text-left transition-colors leading-none ${
+                            className={`text-sm text-left transition-colors leading-none ${
                               activeSection === id
                                 ? 'text-text-primary'
                                 : 'text-text-tertiary hover:text-text-secondary'

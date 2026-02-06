@@ -1,5 +1,5 @@
 ---
-title: "GAİN — Multi-Platform OTT Experience & Design System"
+title: "GAİN"
 description: "Redesigned GAİN's multi-platform OTT experience and design system across mobile, tablet, and smart TV, contributing to an increase in app store rating from 2.1 to 4.3."
 company: "GAİN"
 category: "Multi-Platform"
