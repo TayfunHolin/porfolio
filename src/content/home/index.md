@@ -18,6 +18,7 @@ title: Featured Projects
 label: Experience
 title: Work Experience
 
+
 # CTA Section
 title: Let's create something amazing together
 description: Have a project in mind? I'd love to hear about it. Let's discuss how we can work together.

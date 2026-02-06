@@ -396,7 +396,7 @@ export function HomePage() {
                     {exp.role} · Full Time · {exp.period.replace(' — ', ' · ')}
                   </p>
                   {exp.description && (
-                    <p className="mt-2 text-text-secondary text-sm leading-snug">
+                    <p className="mt-2 text-text-secondary text-sm leading-snug line-clamp-2">
                       {exp.description}
                     </p>
                   )}

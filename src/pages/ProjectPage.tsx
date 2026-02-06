@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -59,6 +59,55 @@ export function ProjectPage() {
 
     return images;
   }, [project, slug]);
+
+  // Extract h2 headings from content for navigation
+  const headings = useMemo(() => {
+    if (!project) return [];
+    const headingRegex = /^## (.+)$/gm;
+    const matches: { id: string; title: string }[] = [];
+    let match;
+    while ((match = headingRegex.exec(project.content)) !== null) {
+      const title = match[1];
+      const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      matches.push({ id, title });
+    }
+    return matches;
+  }, [project]);
+
+  // Track active section
+  const [activeSection, setActiveSection] = useState<string>('');
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Scroll spy effect
+  useEffect(() => {
+    if (headings.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+
+    headings.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [headings]);
+
+  // Scroll to section
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // Lock body scroll when lightbox is open
   useBodyScrollLock(lightboxIndex !== null || coverLightbox);
@@ -196,7 +245,16 @@ export function ProjectPage() {
       if (part.trim()) {
         return (
           <div key={index} className="prose">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h2: ({ children }) => {
+                  const text = String(children);
+                  const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                  return <h2 id={id} className="scroll-mt-24">{children}</h2>;
+                }
+              }}
+            >
               {part}
             </ReactMarkdown>
           </div>
@@ -268,15 +326,45 @@ export function ProjectPage() {
         </motion.section>
       )}
 
-      {/* Content with Galleries */}
-      <section className="max-w-3xl mx-auto px-6 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          {renderContentWithGalleries()}
-        </motion.div>
+      {/* Content with Galleries and Navigation */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="flex gap-12">
+          {/* Sticky Navigation */}
+          {headings.length > 0 && (
+            <nav className="hidden lg:block w-48 flex-shrink-0">
+              <div className="sticky top-32">
+                <p className="text-xs font-sans uppercase text-text-tertiary mb-4">On this page</p>
+                <ul className="space-y-2">
+                  {headings.map(({ id, title }) => (
+                    <li key={id}>
+                      <button
+                        onClick={() => scrollToSection(id)}
+                        className={`text-sm text-left transition-colors ${
+                          activeSection === id
+                            ? 'text-text-primary'
+                            : 'text-text-tertiary hover:text-text-secondary'
+                        }`}
+                      >
+                        {title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </nav>
+          )}
+
+          {/* Main Content */}
+          <motion.div
+            ref={contentRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex-1 max-w-3xl"
+          >
+            {renderContentWithGalleries()}
+          </motion.div>
+        </div>
       </section>
 
       {/* Tags */}
