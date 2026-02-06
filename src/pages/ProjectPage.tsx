@@ -74,9 +74,34 @@ export function ProjectPage() {
     return matches;
   }, [project]);
 
-  // Track active section
+  // Track active section and scroll progress
   const [activeSection, setActiveSection] = useState<string>('');
+  const [scrollProgress, setScrollProgress] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Scroll progress effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const contentEl = contentRef.current;
+      if (!contentEl) return;
+
+      const rect = contentEl.getBoundingClientRect();
+      const contentTop = rect.top + window.scrollY;
+      const contentHeight = contentEl.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+
+      const start = contentTop - windowHeight * 0.3;
+      const end = contentTop + contentHeight - windowHeight * 0.7;
+      const progress = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
+
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Scroll spy effect
   useEffect(() => {
@@ -332,24 +357,51 @@ export function ProjectPage() {
           {/* Sticky Navigation */}
           {headings.length > 0 && (
             <nav className="hidden lg:block w-48 flex-shrink-0">
-              <div className="sticky top-32">
-                <p className="text-xs font-sans uppercase text-text-tertiary mb-4">On this page</p>
-                <ul className="space-y-2">
-                  {headings.map(({ id, title }) => (
-                    <li key={id}>
-                      <button
-                        onClick={() => scrollToSection(id)}
-                        className={`text-sm text-left transition-colors ${
-                          activeSection === id
-                            ? 'text-text-primary'
-                            : 'text-text-tertiary hover:text-text-secondary'
-                        }`}
-                      >
-                        {title}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+              <div className="sticky top-32 border border-border rounded-lg p-5">
+                <p className="text-xs font-sans uppercase text-text-tertiary mb-4">{project.title}</p>
+                <div className="w-full h-px bg-border mb-4" />
+                <div className="flex gap-3">
+                  {/* Progress bar with dots aligned to headings */}
+                  <div className="relative flex-shrink-0 w-2">
+                    {/* Background line - stops at last dot */}
+                    <div className="absolute top-1 left-1/2 -translate-x-1/2 w-0.5 bg-border" style={{ height: 'calc(100% - 8px)' }} />
+                    {/* Active progress line */}
+                    <div
+                      className="absolute top-1 left-1/2 -translate-x-1/2 w-0.5 bg-text-primary transition-all duration-300"
+                      style={{
+                        height: activeSection && headings.length > 1
+                          ? `calc(${(headings.findIndex(h => h.id === activeSection) / (headings.length - 1)) * 100}%)`
+                          : '0%'
+                      }}
+                    />
+                  </div>
+                  <ul className="flex flex-col space-y-3">
+                    {headings.map(({ id, title }, index) => {
+                      const activeIndex = headings.findIndex(h => h.id === activeSection);
+                      const isActive = activeIndex >= 0 && index <= activeIndex;
+                      return (
+                        <li key={id} className="relative flex items-center">
+                          {/* Dot positioned to align with text center */}
+                          <div
+                            className={`absolute -left-5 w-2 h-2 rounded-full transition-colors duration-300 ${
+                              isActive ? 'bg-text-primary' : 'bg-border'
+                            }`}
+                          />
+                          <button
+                            onClick={() => scrollToSection(id)}
+                            className={`text-xs text-left transition-colors leading-none ${
+                              activeSection === id
+                                ? 'text-text-primary'
+                                : 'text-text-tertiary hover:text-text-secondary'
+                            }`}
+                          >
+                            {title}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
             </nav>
           )}
