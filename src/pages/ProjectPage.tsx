@@ -334,7 +334,7 @@ export function ProjectPage() {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-4 py-2 text-sm font-sans text-text-secondary bg-border/50 rounded-full"
+                className="px-4 py-2 text-sm font-sans text-text-secondary bg-border rounded-full"
               >
                 {tag}
               </span>
