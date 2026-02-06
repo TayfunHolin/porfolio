@@ -328,6 +328,18 @@ export function ProjectPage() {
           <p className="mt-6 text-xs font-sans text-text-tertiary uppercase">
             {project.company}, {project.year}
           </p>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-3 mt-6">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-4 py-2 text-sm font-sans text-text-secondary bg-border/50 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </motion.div>
       </section>
 
@@ -419,19 +431,6 @@ export function ProjectPage() {
         </div>
       </section>
 
-      {/* Tags */}
-      <section className="max-w-3xl mx-auto px-6 py-12">
-        <div className="flex flex-wrap gap-3">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-4 py-2 text-sm font-sans text-text-secondary bg-border/50 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </section>
 
       {/* Navigation */}
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border mt-16">
