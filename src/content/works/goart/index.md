@@ -4,7 +4,7 @@ description: "Designed and contributed to multiple core flows of GoArt Worlds, a
 company: "GoArt"
 category: "Mobile App"
 tags: ["Web3", "Mobile App", "Gamification", "AR", "Blockchain", "UI/UX Design"]
-coverImage: "https://picsum.photos/seed/goart-worlds/1200/800"
+coverImage: "./images/GoArt Mobile.png"
 images: []
 order: 2
 year: "2024"

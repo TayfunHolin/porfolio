@@ -1,7 +1,7 @@
 ---
-title: "Food Waste Management App (Scan&Go)"
+title: "CarrefourSA (Scan&Go)"
 description: "Contributed to the end-to-end UX/UI design of a white-label, IFID-compliant food waste management mobile app for retail chains. The Scan&Go application received the Startup of the Year award at the Mastercard PSM Awards 2025."
-company: "Carrefour / SKT"
+company: "Carrefour / Scan&Go"
 category: "Mobile App"
 tags: ["B2B", "Retail", "Mobile App", "White-Label", "Award-Winning", "UI/UX Design"]
 coverImage: "./images/CarrefourSA.png"
