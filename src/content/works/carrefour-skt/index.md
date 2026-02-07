@@ -4,7 +4,7 @@ description: "Contributed to the end-to-end UX/UI design of a white-label, IFID-
 company: "Carrefour / SKT"
 category: "Mobile App"
 tags: ["B2B", "Retail", "Mobile App", "White-Label", "Award-Winning", "UI/UX Design"]
-coverImage: "https://picsum.photos/seed/scango-app/1200/800"
+coverImage: "./images/CarrefourSA.png"
 images: []
 order: 8
 year: "2025"
