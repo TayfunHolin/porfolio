@@ -605,6 +605,27 @@ export function ProjectPage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Mobile Bottom Navigation */}
+      {headings.length > 0 && (
+        <nav className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-surface/95 backdrop-blur-md border-t border-border">
+          <div className="flex overflow-x-auto scrollbar-hide gap-2 px-4 py-3">
+            {headings.map(({ id, title }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`flex-shrink-0 px-4 py-2 text-sm rounded-full transition-colors ${
+                  activeSection === id
+                    ? 'bg-text-primary text-surface'
+                    : 'bg-border text-text-secondary'
+                }`}
+              >
+                {title}
+              </button>
+            ))}
+          </div>
+        </nav>
+      )}
     </div>
   );
 }
