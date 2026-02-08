@@ -35,7 +35,7 @@ export function ArticlesPage() {
               className="group grid md:grid-cols-[240px_1fr] gap-6 py-12 border-b border-border"
             >
               {/* Cover Image */}
-              <div className="overflow-hidden bg-border aspect-square">
+              <div className="overflow-hidden bg-border aspect-video">
                 {article.coverImage && (
                   <img
                     src={article.coverImage}
