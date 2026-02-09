@@ -1,5 +1,5 @@
 ---
-title: "Kloudser — Multi-Tool AI Platform"
+title: "Kloudser"
 description: "Led the end-to-end UX/UI design of Kloudser, a responsive web platform that unifies multiple AI tools into a single, scalable SaaS experience."
 company: "Kloudser"
 category: "Web App"

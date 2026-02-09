@@ -1,5 +1,5 @@
 ---
-title: "Earnlines — Internet Sharing & Rewards Platform"
+title: "Earnlines"
 description: "Contributed end-to-end to the UX/UI design of Earnlines, a multi-platform product that enables users to earn money by sharing internet bandwidth and completing reward-based quests."
 company: "Earnlines"
 category: "Multi-Platform"

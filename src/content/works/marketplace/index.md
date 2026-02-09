@@ -1,5 +1,5 @@
 ---
-title: "GoArt Marketplace — Web3 Platform"
+title: "GoArt Marketplace"
 description: "Led the end-to-end UX/UI design of GoArt Marketplace as it evolved from an NFT marketplace into a full Web3 platform, covering wallet, staking, rewards, and transactional systems."
 company: "GoArt"
 category: "Web App"

@@ -1,5 +1,5 @@
 ---
-title: "GoArt Worlds — Web3 Mobile Product"
+title: "GoArt Worlds Mobile App"
 description: "Designed and contributed to multiple core flows of GoArt Worlds, a Web3 mobile platform combining avatars, quests, AR experiences, and blockchain-based rewards."
 company: "GoArt"
 category: "Mobile App"

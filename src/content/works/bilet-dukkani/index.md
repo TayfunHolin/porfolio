@@ -1,5 +1,5 @@
 ---
-title: "Bilet Dukkani — Checkout Optimization"
+title: "Bilet Dükkanı"
 description: "Improved Bilet Dukkani's web and mobile checkout flows by reducing steps, introducing sticky purchase actions, and unifying components across all travel verticals."
 company: "Bilet Dukkani"
 category: "Web · Mobile Web"
