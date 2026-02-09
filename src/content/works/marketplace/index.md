@@ -4,7 +4,7 @@ description: "Led the end-to-end UX/UI design of GoArt Marketplace as it evolved
 company: "GoArt"
 category: "Web App"
 tags: ["Web3", "Marketplace", "NFT", "Blockchain", "UI/UX Design"]
-coverImage: "https://picsum.photos/seed/goart-marketplace/1200/800"
+coverImage: "./images/MP Cover1.jpg"
 images: []
 order: 3
 year: "2024"
@@ -73,6 +73,10 @@ This reframing shifted the design focus to:
 
 ## Core Platform Modules
 
+<gallery cols="1">
+<figure src="./images/MP1.jpg" alt="GoArt Marketplace Platform"></figure>
+</gallery>
+
 ### Marketplace & Collections
 
 - Asset browsing optimized for visual discovery
@@ -107,6 +111,10 @@ This reframing shifted the design focus to:
 
 ## Navigation & Information Architecture
 
+<gallery cols="1">
+<figure src="./images/MP2.jpg" alt="GoArt Marketplace Navigation"></figure>
+</gallery>
+
 As features increased, navigation became a critical UX problem.
 
 - A redesigned sidebar optimized for scalability
@@ -129,6 +137,10 @@ In Web3 products, UX is directly tied to **financial trust**.
 ---
 
 ## Outcome
+
+<gallery cols="1">
+<figure src="./images/Design system 1.jpg" alt="GoArt Marketplace Design System"></figure>
+</gallery>
 
 - GoArt Marketplace successfully evolved into a full Web3 platform
 - Users gained access to complex blockchain features through a clear UI
