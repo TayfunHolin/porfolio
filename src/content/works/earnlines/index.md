@@ -7,7 +7,7 @@ tags: ["Fintech", "Mobile App", "Web App", "Gamification", "UI/UX Design"]
 coverImage: "./images/Earnlines.jpg"
 images: []
 order: 7
-year: "2024"
+year: "2025"
 featured: false
 ---
 

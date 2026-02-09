@@ -7,7 +7,7 @@ tags: ["OTT", "Design System", "Mobile", "Smart TV", "Tablet", "UI/UX Design"]
 coverImage: "./images/01.png"
 images: []
 order: 1
-year: "2024"
+year: "2025"
 featured: true
 featuredOrder: 1
 ---
