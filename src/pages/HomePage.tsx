@@ -470,11 +470,11 @@ export function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-12 md:p-16 lg:p-20"
+            className="relative overflow-hidden rounded-2xl bg-black/30 backdrop-blur-xl border border-black/40 p-12 md:p-16 lg:p-20"
           >
             {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-black/60 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/60 rounded-full translate-y-1/2 -translate-x-1/2" />
 
             <div className="relative">
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-xl">
