@@ -272,7 +272,7 @@ export function HomePage() {
       </section>
 
       {/* Featured Work Section */}
-      <section ref={worksRef} className="relative z-10 bg-surface">
+      <section ref={worksRef} className="relative z-10 bg-black">
         <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 overflow-y-clip">
         {/* Diamond shapes background */}
         <motion.div className="absolute pointer-events-none" style={{ top: '800px', right: '-450px', y: diamondY }}>
