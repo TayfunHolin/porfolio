@@ -4,7 +4,7 @@ description: "Led the end-to-end UX/UI design of Kloudser, a responsive web plat
 company: "Kloudser"
 category: "Web App"
 tags: ["AI", "SaaS", "Platform", "Web App", "UI/UX Design"]
-coverImage: "./images/Kloudser1.jpg"
+coverImage: "./images/KL Cover.jpg"
 images: []
 order: 6
 year: "2024"
@@ -61,6 +61,10 @@ The problem was reframed from "designing AI tools" to:
 
 ## Design Approach
 
+<gallery cols="1">
+<figure src="./images/KL1.jpg" alt="Kloudser AI Platform Design"></figure>
+</gallery>
+
 ### System-First UX
 
 The platform was designed as a **modular system**:
@@ -85,6 +89,10 @@ The platform was designed as a **modular system**:
 
 ### Asset & Output Management
 
+<gallery cols="1">
+<figure src="./images/KL2.jpg" alt="Kloudser AI Tools"></figure>
+</gallery>
+
 - Generated content is easily accessible
 - Consistent preview patterns across formats
 - Clear ownership of outputs per tool
@@ -98,6 +106,10 @@ Kloudser was designed with **responsive behavior in mind** from the start. Layou
 ---
 
 ## Outcome
+
+<gallery cols="1">
+<figure src="./images/KL3.jpg" alt="Kloudser AI Platform"></figure>
+</gallery>
 
 - A unified AI platform housing multiple tools under one UX system
 - Reduced cognitive load across complex AI workflows

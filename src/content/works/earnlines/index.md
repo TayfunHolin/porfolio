@@ -53,6 +53,10 @@ The core vision behind Earnlines was to create a system where:
 
 ## Core Experience Areas
 
+<gallery cols="1">
+<figure src="./images/EA1.jpg" alt="Earnlines Core Experience"></figure>
+</gallery>
+
 ### Earning & Internet Sharing
 
 - Clear on/off control for internet sharing
@@ -80,11 +84,19 @@ Quests were introduced to increase engagement beyond passive earning, reward int
 
 ## Back Office & Admin Experience
 
+<gallery cols="1">
+<figure src="./images/EA2.jpg" alt="Earnlines Back Office"></figure>
+</gallery>
+
 The back office enables user and device management, earnings and payout monitoring, quest and campaign configuration, and system-level controls and reporting.
 
 ---
 
 ## Outcome
+
+<gallery cols="1">
+<figure src="./images/EA3.jpg" alt="Earnlines Platform"></figure>
+</gallery>
 
 - A fully designed, multi-platform earning ecosystem
 - Clear and trustworthy earning experience for users

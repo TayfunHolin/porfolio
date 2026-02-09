@@ -4,7 +4,7 @@ description: "Contributed to the end-to-end UX/UI design of a white-label, IFID-
 company: "Carrefour / Scan&Go"
 category: "Mobile App"
 tags: ["B2B", "Retail", "Mobile App", "White-Label", "Award-Winning", "UI/UX Design"]
-coverImage: "./images/CarrefourSA.png"
+coverImage: "./images/Ca Cover.jpg"
 images: []
 order: 8
 year: "2025"
@@ -60,6 +60,10 @@ This reframing shifted the UX focus toward speed and clarity, action-driven flow
 
 ## Key User Flows
 
+<gallery cols="1">
+<figure src="./images/CA.jpg" alt="CarrefourSA Scan&Go User Flows"></figure>
+</gallery>
+
 ### Stock Control & Expiration Tracking
 
 - Products are scanned via barcode
@@ -88,11 +92,19 @@ The entire flow is optimized to be completed **within seconds**.
 
 ## White-Label & Scalability
 
+<gallery cols="1">
+<figure src="./images/CA1.jpg" alt="CarrefourSA White-Label Design"></figure>
+</gallery>
+
 The product was designed as a **brand-agnostic system** with easy branding, configurable texts and workflows, and store-level rule customization.
 
 ---
 
 ## Outcome & Recognition
+
+<gallery cols="1">
+<figure src="./images/CA2.jpg" alt="CarrefourSA Scan&Go App"></figure>
+</gallery>
 
 - A functional, market-ready MVP for a white-label retail solution
 - Clear, action-oriented mobile UX for store employees
