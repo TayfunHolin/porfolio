@@ -4,7 +4,7 @@ description: "Redesigned GAİN's multi-platform OTT experience and design system
 company: "GAİN"
 category: "Multi-Platform"
 tags: ["OTT", "Design System", "Mobile", "Smart TV", "Tablet", "UI/UX Design"]
-coverImage: "https://picsum.photos/seed/gain-ott/1200/800"
+coverImage: "./images/01.png"
 images: []
 order: 1
 year: "2024"

@@ -48,14 +48,14 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
       >
         {/* Image Container - reveals top to bottom */}
         <motion.div
-          className="relative overflow-hidden bg-border rounded-lg"
+          className="relative overflow-hidden bg-border rounded-lg aspect-square"
           variants={imageVariants}
         >
           {project.coverImage && (
             <img
               src={project.coverImage}
               alt={project.title}
-              className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
           )}
 
