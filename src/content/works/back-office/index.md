@@ -4,7 +4,7 @@ description: "Designed the end-to-end UX/UI of GoArt Worlds' Web3 back office, i
 company: "GoArt"
 category: "Web App"
 tags: ["Admin Panel", "Back Office", "Web3", "B2B", "UI/UX Design"]
-coverImage: "https://picsum.photos/seed/goart-backoffice/1200/800"
+coverImage: "./images/BO Cover.jpg"
 images: []
 order: 4
 year: "2024"
@@ -58,6 +58,10 @@ Core modules include:
 
 ## Design Approach
 
+<gallery cols="1">
+<figure src="./images/BO2.jpg" alt="GoArt Back Office Design"></figure>
+</gallery>
+
 ### Role-Based UX & Permissions
 
 The entire experience was designed around **role-based access control**.
@@ -82,6 +86,10 @@ Navigation and page hierarchy were designed to be:
 
 ### High-Risk Actions & Safe UX Patterns
 
+<gallery cols="1">
+<figure src="./images/BO2-1.jpg" alt="GoArt Back Office Screens"></figure>
+</gallery>
+
 Since many actions affect the live product:
 
 - Confirmation steps were added
@@ -91,6 +99,10 @@ Since many actions affect the live product:
 ---
 
 ## Outcome
+
+<gallery cols="1">
+<figure src="./images/Design system 1.jpg" alt="GoArt Back Office Design System"></figure>
+</gallery>
 
 - The entire GoArt Worlds ecosystem became centrally manageable
 - Internal teams gained a clear, secure operational tool

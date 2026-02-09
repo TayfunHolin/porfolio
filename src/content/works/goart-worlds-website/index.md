@@ -4,7 +4,7 @@ description: "Contributed to the UI/UX design of the GoArt Worlds corporate webs
 company: "GoArt"
 category: "Website"
 tags: ["Corporate Website", "Web3", "Brand Design", "Award-Winning", "UI/UX Design"]
-coverImage: "https://picsum.photos/seed/goart-website/1200/800"
+coverImage: "./images/Cover.jpg"
 images: []
 order: 5
 year: "2024"
@@ -56,6 +56,10 @@ Within the design team, I worked as a **UI/UX Designer**, contributing to:
 
 ## Design Approach
 
+<gallery cols="1">
+<figure src="./images/GO1.jpg" alt="GoArt Worlds Website Design"></figure>
+</gallery>
+
 ### Immersive Brand Expression
 
 The website was designed to reflect:
@@ -76,11 +80,19 @@ Design decisions focused on:
 
 ### Marketing & Scalability
 
+<gallery cols="1">
+<figure src="./images/GO2.jpg" alt="GoArt Worlds Website Sections"></figure>
+</gallery>
+
 The site structure was designed to be easily extendable, suitable for campaign-based storytelling, and flexible enough to support future product evolution.
 
 ---
 
 ## Outcome & Recognition
+
+<gallery cols="1">
+<figure src="./images/Design system 1.jpg" alt="GoArt Worlds Website Design System"></figure>
+</gallery>
 
 The corporate website successfully supported GoArt Worlds' brand positioning and visibility.
 
