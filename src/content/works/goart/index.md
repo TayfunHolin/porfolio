@@ -107,7 +107,7 @@ Multiple reward-driven systems were unified through a consistent UX language:
 ### Inventory, Wallet & Crafting
 
 <gallery cols="1">
-<figure src="./images/App3.jpg" alt="GoArt Inventory and Wallet"></figure>
+<figure src="./images/Design system 1.jpg" alt="GoArt Design System"></figure>
 </gallery>
 
 Web3 concepts like wallets and digital assets were translated into **mobile-friendly mental models**.
