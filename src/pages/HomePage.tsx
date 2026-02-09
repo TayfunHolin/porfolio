@@ -488,7 +488,7 @@ export function HomePage() {
                   href={home.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-surface font-sans text-sm rounded-full hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-surface font-sans text-sm font-semibold rounded-full hover:bg-white/90 transition-colors"
                 >
                   {home.cta.buttonText}
                   <ArrowUpRight size={16} />
