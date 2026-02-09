@@ -57,7 +57,7 @@ function CtaCard({ linkedin }: { linkedin: string }) {
         rel="noopener noreferrer"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="cta-card relative flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-[3/2] px-8 text-center overflow-hidden hover:border-white/[0.16] transition-colors cursor-pointer"
+        className="cta-card relative flex flex-col items-center justify-center border border-dashed border-white/[0.08] rounded-lg aspect-square px-8 text-center overflow-hidden hover:border-white/[0.16] transition-colors cursor-pointer bg-white/[0.05]"
       >
         <div className="relative z-10">
           <h3 className="font-serif font-semibold text-xl text-text-primary">
