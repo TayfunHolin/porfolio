@@ -4,7 +4,7 @@ description: "Designed and contributed to multiple core flows of GoArt Worlds, a
 company: "GoArt"
 category: "Mobile App"
 tags: ["Web3", "Mobile App", "Gamification", "AR", "Blockchain", "UI/UX Design"]
-coverImage: "./images/GoArt Mobile.png"
+coverImage: "./images/GoArt App.jpg"
 images: []
 order: 2
 year: "2024"
@@ -72,6 +72,10 @@ This required:
 
 ## Design Approach
 
+<gallery cols="1">
+<figure src="./images/APP1.jpg" alt="GoArt App Design"></figure>
+</gallery>
+
 ### Feature-Rich, System-Driven UX
 
 Instead of treating each feature as a standalone screen, the product was approached as a **connected system**.
@@ -120,6 +124,10 @@ AR features introduced real-world interaction into the product.
 ---
 
 ## Outcome
+
+<gallery cols="1">
+<figure src="./images/APP2.jpg" alt="GoArt App Outcome"></figure>
+</gallery>
 
 - A complex Web3 product delivered as a usable, engaging mobile experience
 - Strong visual and interaction consistency across many feature sets

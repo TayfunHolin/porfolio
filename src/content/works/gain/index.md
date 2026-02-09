@@ -59,6 +59,10 @@ This reframing shifted the work from a UI refresh to:
 
 ## Solution Approach
 
+<gallery cols="1">
+<figure src="./images/02.png" alt="GAİN Mobile Experience"></figure>
+</gallery>
+
 ### Mobile Experience — Speed & Personalization
 
 Mobile is the most personal touchpoint of the product.
@@ -102,6 +106,10 @@ Design considerations:
 
 ## Design System — Platform-Aware Foundations
 
+<gallery cols="1">
+<figure src="./images/04.png" alt="GAİN Design System"></figure>
+</gallery>
+
 The design system became the backbone of the project.
 
 ### Color & Tokens
@@ -141,6 +149,10 @@ Multi-platform delivery made handoff critical.
 ---
 
 ## Outcome & Measurable Impact
+
+<gallery cols="1">
+<figure src="./images/05.png" alt="GAİN Outcome"></figure>
+</gallery>
 
 This work went beyond visual quality and directly affected user perception.
 

@@ -4,7 +4,7 @@ description: "Contributed end-to-end to the UX/UI design of Earnlines, a multi-p
 company: "Earnlines"
 category: "Multi-Platform"
 tags: ["Fintech", "Mobile App", "Web App", "Gamification", "UI/UX Design"]
-coverImage: "./images/Earnlines.png"
+coverImage: "./images/Earnlines.jpg"
 images: []
 order: 7
 year: "2024"
