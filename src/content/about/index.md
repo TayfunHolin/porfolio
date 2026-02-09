@@ -4,7 +4,7 @@ handle: johndoe
 title: UI/UX Designer
 location: İstanbul, Türkiye
 email: tayfun_holin@hotmail.com
-avatar: https://picsum.photos/seed/avatar/400/400
+avatar: ./images/tayfun.jpeg
 
 # Bio
 
