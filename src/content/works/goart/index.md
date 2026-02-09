@@ -4,7 +4,7 @@ description: "Designed and contributed to multiple core flows of GoArt Worlds, a
 company: "GoArt"
 category: "Mobile App"
 tags: ["Web3", "Mobile App", "Gamification", "AR", "Blockchain", "UI/UX Design"]
-coverImage: "./images/GoArt App.jpg"
+coverImage: "./images/Cover.jpg"
 images: []
 order: 2
 year: "2024"
@@ -105,6 +105,10 @@ Multiple reward-driven systems were unified through a consistent UX language:
 - Leaderboards
 
 ### Inventory, Wallet & Crafting
+
+<gallery cols="1">
+<figure src="./images/App3.jpg" alt="GoArt Inventory and Wallet"></figure>
+</gallery>
 
 Web3 concepts like wallets and digital assets were translated into **mobile-friendly mental models**.
 

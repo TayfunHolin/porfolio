@@ -247,12 +247,12 @@ export function ProjectPage() {
                 <figure key={figIndex} className="m-0">
                   <button
                     onClick={() => openLightbox(lightboxIdx)}
-                    className="w-full overflow-hidden cursor-zoom-in"
+                    className="w-full overflow-hidden cursor-zoom-in rounded-2xl"
                   >
                     <img
                       src={resolvedPath}
                       alt={figure.alt}
-                      className="w-full h-auto"
+                      className="w-full h-auto rounded-2xl"
                     />
                   </button>
                   {figure.caption && (
@@ -349,14 +349,14 @@ export function ProjectPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="max-w-7xl mx-auto px-6 pb-16"
+          className="max-w-6xl mx-auto px-6 pb-16"
         >
-          <div className="overflow-hidden">
+          <div className="overflow-hidden rounded-2xl">
             <button onClick={() => setCoverLightbox(true)} className="w-full cursor-zoom-in">
               <img
                 src={project.coverImage}
                 alt={project.title}
-                className="w-full h-auto"
+                className="w-full h-auto rounded-2xl"
               />
             </button>
           </div>
