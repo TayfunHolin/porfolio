@@ -6,7 +6,7 @@ category: "Web · Mobile Web"
 tags: ["E-Commerce", "Travel", "Checkout UX", "Web", "Mobile", "UI/UX Design"]
 coverImage: "https://picsum.photos/seed/bilet-dukkani/1200/800"
 images: []
-order: 9
+order: 8
 year: "2024"
 featured: false
 ---

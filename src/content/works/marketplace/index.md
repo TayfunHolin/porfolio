@@ -6,7 +6,7 @@ category: "Web App"
 tags: ["Web3", "Marketplace", "NFT", "Blockchain", "UI/UX Design"]
 coverImage: "./images/MP Cover1.jpg"
 images: []
-order: 3
+order: 4
 year: "2024"
 featured: true
 featuredOrder: 3

@@ -6,7 +6,7 @@ category: "Website"
 tags: ["Corporate Website", "Web3", "Brand Design", "Award-Winning", "UI/UX Design"]
 coverImage: "./images/Cover.jpg"
 images: []
-order: 5
+order: 2
 year: "2024"
 featured: true
 featuredOrder: 4

@@ -6,7 +6,7 @@ category: "Mobile App"
 tags: ["B2B", "Retail", "Mobile App", "White-Label", "Award-Winning", "UI/UX Design"]
 coverImage: "./images/Ca Cover.jpg"
 images: []
-order: 8
+order: 7
 year: "2025"
 featured: false
 ---

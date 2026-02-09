@@ -6,7 +6,7 @@ category: "Mobile App"
 tags: ["Web3", "Mobile App", "Gamification", "AR", "Blockchain", "UI/UX Design"]
 coverImage: "./images/Cover.jpg"
 images: []
-order: 2
+order: 3
 year: "2024"
 featured: true
 featuredOrder: 2

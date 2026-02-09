@@ -6,7 +6,7 @@ category: "Multi-Platform"
 tags: ["Fintech", "Mobile App", "Web App", "Gamification", "UI/UX Design"]
 coverImage: "./images/Earnlines.jpg"
 images: []
-order: 7
+order: 6
 year: "2025"
 featured: false
 ---
