@@ -80,34 +80,34 @@ export function Footer() {
             <ul className="flex flex-col gap-1 list-none">
               <li>
                 <a
-                  href="#"
+                  href="https://www.gain.tv/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-text-secondary hover:text-indigo-400 transition-colors text-sm group"
                 >
-                  Project One
+                  GAİN
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.goartworlds.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-text-secondary hover:text-indigo-400 transition-colors text-sm group"
                 >
-                  Project Two
+                  GoArt Worlds
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://marketplace.goartworlds.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-text-secondary hover:text-indigo-400 transition-colors text-sm group"
                 >
-                  Project Three
+                  GoArt Worlds Marketplace
                   <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </li>
