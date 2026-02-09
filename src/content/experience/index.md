@@ -31,11 +31,3 @@ url: https://www.goartworlds.com/
 description: In this role , I contributed to the design of GoArt back-office screens , completing both desktop and responsive designs.
 skills: Product Design, UX Research, UI Design, Figma
 
-# Creative Web Agency
-role: Web Designer
-period: Aug 2014 — May 2017
-location: Chicago, USA
-logo: https://picsum.photos/seed/company4/100/100
-url: https://example.com/
-description: Designed and developed responsive websites for small to medium businesses. Focused on creating visually appealing and user-friendly web experiences.
-skills: Web Design, HTML5, CSS3, JavaScript, WordPress
