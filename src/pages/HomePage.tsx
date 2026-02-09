@@ -11,7 +11,7 @@ import GainLogo from '@/Brand logos/Gain.svg';
 import BiletDukkaniLogo from '@/Brand logos/Bilet Dükkanı.svg';
 import UnlimitedBikingLogo from '@/Brand logos/Unlimited Biking.svg';
 import EarnlinesLogo from '@/Brand logos/Earnlines.svg';
-import homeImage from '@/content/home/img/light 2.png';
+import homeImage from '@/content/home/img/light1a.jpg';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects, getProjects } from '@/lib/projects';
@@ -367,7 +367,7 @@ export function HomePage() {
       </section>
 
       {/* Experience Preview */}
-      <section className="relative z-10 bg-surface">
+      <section className="relative z-10">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         <div className="flex flex-col md:flex-row md:items-start gap-16">
           <div className="md:w-1/3 md:sticky md:top-32">
@@ -470,17 +470,17 @@ export function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl bg-text-primary p-12 md:p-16 lg:p-20"
+            className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-12 md:p-16 lg:p-20"
           >
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
 
             <div className="relative">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-surface max-w-xl">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-xl">
                 {home.cta.title}
               </h2>
-              <p className="mt-6 text-surface/70 text-lg max-w-lg">
+              <p className="mt-6 text-text-secondary text-lg max-w-lg">
                 {home.cta.description}
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -488,7 +488,7 @@ export function HomePage() {
                   href={home.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-sans text-sm rounded-full hover:bg-surface/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-surface font-sans text-sm rounded-full hover:bg-white/90 transition-colors"
                 >
                   {home.cta.buttonText}
                   <ArrowUpRight size={16} />
