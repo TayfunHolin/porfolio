@@ -11,6 +11,7 @@ import GainLogo from '@/Brand logos/Gain.svg';
 import BiletDukkaniLogo from '@/Brand logos/Bilet Dükkanı.svg';
 import UnlimitedBikingLogo from '@/Brand logos/Unlimited Biking.svg';
 import EarnlinesLogo from '@/Brand logos/Earnlines.svg';
+import homeImage from '@/content/home/img/light 2.png';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects, getProjects } from '@/lib/projects';
@@ -271,7 +272,8 @@ export function HomePage() {
       </section>
 
       {/* Featured Work Section */}
-      <section ref={worksRef} className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 overflow-y-clip">
+      <section ref={worksRef} className="relative z-10 bg-surface">
+        <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 overflow-y-clip">
         {/* Diamond shapes background */}
         <motion.div className="absolute pointer-events-none" style={{ top: '800px', right: '-450px', y: diamondY }}>
           {/* Solid glow layers */}
@@ -361,10 +363,12 @@ export function HomePage() {
             <ArrowRight size={16} />
           </Link>
         </div>
+        </div>
       </section>
 
       {/* Experience Preview */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <section className="relative z-10 bg-surface">
+        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         <div className="flex flex-col md:flex-row md:items-start gap-16">
           <div className="md:w-1/3 md:sticky md:top-32">
             <SectionHeading
@@ -446,40 +450,53 @@ export function HomePage() {
         </motion.div>
         </div>
         </div>
+        </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl bg-text-primary p-12 md:p-16 lg:p-20"
-        >
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+      {/* CTA Section with Background Image */}
+      <section className="relative overflow-visible">
+        {/* Background Image - aligned to bottom */}
+        <div className="absolute inset-x-0 bottom-0 pointer-events-none">
+          <img
+            src={homeImage}
+            alt=""
+            className="w-full h-auto object-cover object-bottom translate-y-[calc(8%+30px)]"
+          />
+                  </div>
 
-          <div className="relative">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-surface max-w-xl">
-              {home.cta.title}
-            </h2>
-            <p className="mt-6 text-surface/70 text-lg max-w-lg">
-              {home.cta.description}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href={home.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-sans text-sm rounded-full hover:bg-surface/90 transition-colors"
-              >
-                {home.cta.buttonText}
-                <ArrowUpRight size={16} />
-              </a>
+        {/* CTA Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-2xl bg-text-primary p-12 md:p-16 lg:p-20"
+          >
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+            <div className="relative">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-surface max-w-xl">
+                {home.cta.title}
+              </h2>
+              <p className="mt-6 text-surface/70 text-lg max-w-lg">
+                {home.cta.description}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={home.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-sans text-sm rounded-full hover:bg-surface/90 transition-colors"
+                >
+                  {home.cta.buttonText}
+                  <ArrowUpRight size={16} />
+                </a>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
     </div>
   );
