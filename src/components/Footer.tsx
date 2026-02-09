@@ -146,7 +146,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="text-text-tertiary text-xs hover:text-indigo-400 transition-colors"
           >
-            Created by selfishprimate
+            Created by tayfunholin
           </a>
         </div>
       </div>
