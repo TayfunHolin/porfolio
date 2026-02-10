@@ -1,6 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useScroll, useTransform, useAnimation } from 'framer-motion';
+import { Quote } from 'lucide-react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ShaderGradientCanvas, ShaderGradient, presets } from '@shadergradient/react';
 import GoArtLogo from '@/Brand logos/GoArt.svg';
@@ -18,6 +19,117 @@ import { getFeaturedProjects, getProjects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeading } from '@/components/SectionHeading';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
+
+// Recommendations data
+const recommendations = [
+  {
+    id: 1,
+    name: "Halil İbrahim Çakıroğlu",
+    title: "Lead UI/UX Designer",
+    image: "/recommendations/Halil.jpeg",
+    quote: "It is rare to find a designer as skilled and dedicated as Tayfun. I can confidently say he is one of the most talented UI designers—and above all, one of the most fun people—I've had the opportunity to collaborate with. Tayfun has an exceptional eye for visual design, and despite his young age, his technical proficiency is remarkable. He excels at building and managing complex design systems, ensuring scalability and consistency across every project. His UI craft is consistently polished, but he also brings a strong foundation in user research to the table, making his design decisions both aesthetic and functional. What truly sets Tayfun apart is his personality and professional approach. He is an incredibly cheerful colleague who makes collaboration effortless. His communication with both the team and stakeholders is top-notch, and he has a natural ability to integrate AI-driven tools into his workflow to enhance efficiency without sacrificing quality. Beyond his technical skills, Tayfun brings genuine vision and positive energy to the team. He doesn't just execute; he contributes ideas that elevate the product and the culture around him. Any organization would benefit greatly from Tayfun's expertise and his infectious positive impact.",
+  },
+  {
+    id: 2,
+    name: "Beyza Atasayar Kozpınar",
+    title: "Senior Product Designer",
+    image: "/recommendations/Beyza.jpeg",
+    quote: "Tayfun is the kind of designer who brings both top-tier design skills and a remarkably positive energy to the team every single day. His UI work is consistently high-quality, but what really makes him a great designer is his relentless drive to keep learning and evolving. Tayfun is an extremely proactive person who genuinely enjoys being involved in different projects. He's always looking for ways to make the team's life easier, putting in the extra effort to streamline workflows or solve problems before they even arise. What I appreciated most about working with him was his mindset. He isn't just focused on his own tasks; he's always eager to push the team forward and share new ideas. Collaborating with him was a genuine blast, he's the kind of person who not only delivers great design but also makes the whole process more enjoyable for everyone involved.",
+  },
+  {
+    id: 3,
+    name: "Dilan Mirioğlu",
+    title: "UX Designer",
+    image: "/recommendations/Dilan.jpeg",
+    quote: "Tayfun is a highly capable UX/UI Designer with a genuine passion for his work, and it shows in everything he delivers. He is talented, positive, and consistently puts effort into creating the best possible version of each design. Tayfun approaches problems with curiosity — asking the right questions, taking time to understand user needs and product goals, and providing thoughtful, insightful feedback that improves the overall experience. He is also a great teammate and a pleasure to collaborate with. Tayfun brings an encouraging and supportive energy to the team, and he genuinely cares about the people he works with. He motivates others to keep learning and improving, while also actively investing in his own growth. With his open communication style and eagerness to develop, he consistently produces senior-level outcomes and contributes meaningfully to both the product and the team culture.",
+  },
+  {
+    id: 4,
+    name: "Uğur Anlak",
+    title: "Lead UI/UX Designer",
+    image: "/recommendations/Ugur.jpeg",
+    quote: "Tayfun, ekibe katıldığı ilk günden itibaren öğrenmeye olan isteği, sorumluluk bilinci ve ürettiği işlerin kalitesiyle fark yarattı. Roofstacks'te birçok projede hem destek hem de kritik roller üstlenerek ekibin güvenilir bir parçası haline geldi. Bugün geldiği noktada, title'ının ötesinde işler ortaya koyarak projelerin başarısına önemli katkılar sağlıyor. Onun gelişimini görmek ve birlikte çalışmak benim için büyük bir gurur.",
+  },
+  {
+    id: 5,
+    name: "Berkay Boz",
+    title: "Senior UI/UX Designer",
+    image: "/recommendations/Berkay.jpeg",
+    quote: "Tayfun ile yaklaşık 3 yıl boyunca birçok farklı projede birlikte çalışma fırsatım oldu. Kendisi yaratıcı bakış açısına sahip, kullanıcı odaklı düşünebilen ve tasarım sistemleri konusunda oldukça deneyimli bir tasarımcı. Aynı zamanda ekip içi iletişimi kuvvetli, geri bildirimlere açık ve çözüm odaklı bir ekip arkadaşı. Tayfun'un hem tasarım kalitesi hem de çalışma disipliniyle yer aldığı ekiplere ciddi katkı sağladığını rahatlıkla söyleyebilirim. UI/UX alanında güvenle tavsiye ederim.",
+  },
+  {
+    id: 6,
+    name: "Emre Can Tekgül",
+    title: "Senior UI/UX Designer",
+    image: "/recommendations/Emre.jpeg",
+    quote: "Tayfun birlikte çalıştığımız süre boyunca hem yeteneği, hem de iletişim becerileriyle birlikte çalışmayı çok keyifli hale getiren bir tasarımcı. Onunla aynı takımda çalışmak son derece keyifli bir deneyimdi. Yaratıcı bakış açısı ile projelere ve ekibe değer kattı. Özellikle karmaşık akışları basitleştirme ve ürettiği çözümler son derece değerliydi. Beraber çalıştığımız projelerde, zorlu zamanlarda bile kaliteli iş çıkarma konusunda her zaman güvenebileceğimiz biriydi. Herkesin fikrini dinleyen ve ortak bir çözüm bulmayı hedefleyen yapısıyla projemizi ileriye taşıdı. Beraber çalıştığımız tüm projelerde olduğu gibi, gelecekteki projelerinde de harika işler başaracağına inanıyorum! Teşekkürler Tayfun, birlikte çalışmak büyük bir zevkti!",
+  },
+];
+
+function RecommendationsCarousel() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+    }
+  }, []);
+
+  return (
+    <motion.div
+      ref={carouselRef}
+      className="cursor-grab overflow-hidden"
+      whileTap={{ cursor: "grabbing" }}
+    >
+      <motion.div
+        className="flex gap-6"
+        drag="x"
+        dragConstraints={{ right: 0, left: -width }}
+        dragElastic={0.1}
+        dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+      >
+        {recommendations.map((rec, index) => (
+          <motion.div
+            key={rec.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+            className="w-[calc(50%-12px)] min-w-[320px] flex-shrink-0"
+          >
+            <div className="p-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm hover:border-white/[0.15] hover:bg-white/[0.04] transition-all duration-300">
+              {/* Quote icon */}
+              <Quote className="w-8 h-8 text-blue-500 mb-4" />
+
+              {/* Quote text */}
+              <p className="text-text-secondary text-sm leading-relaxed mb-6 line-clamp-6">
+                "{rec.quote}"
+              </p>
+
+              {/* Author info */}
+              <div className="flex items-center gap-4">
+                <img
+                  src={rec.image}
+                  alt={rec.name}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-white/[0.1]"
+                />
+                <div>
+                  <h4 className="font-serif font-semibold text-text-primary">
+                    {rec.name}
+                  </h4>
+                  <p className="text-text-secondary text-sm">
+                    {rec.title}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.div>
+  );
+}
 
 function CtaCard({ linkedin }: { linkedin: string }) {
   const cardRef = useRef<HTMLAnchorElement>(null);
@@ -450,6 +562,36 @@ export function HomePage() {
         </motion.div>
         </div>
         </div>
+        </div>
+      </section>
+
+      {/* Recommendations Section */}
+      <section className="relative z-10 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <SectionHeading
+              label="Recommendations"
+              title="What People Say"
+              description="Kind words from colleagues and clients I've had the pleasure to work with."
+            />
+          </motion.div>
+
+          <RecommendationsCarousel />
+
+          {/* Scroll hint */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-6 text-center text-text-secondary/50 text-sm"
+          >
+            ← Drag to explore →
+          </motion.p>
         </div>
       </section>
 
