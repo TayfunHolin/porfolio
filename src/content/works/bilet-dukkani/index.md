@@ -4,8 +4,8 @@ description: "Improved Bilet Dukkani's web and mobile checkout flows by reducing
 company: "Bilet Dukkani"
 category: "Web · Mobile Web"
 tags: ["E-Commerce", "Travel", "Checkout UX", "Web", "Mobile", "UI/UX Design"]
-coverImage: "https://picsum.photos/seed/bilet-dukkani/1200/800"
-images: []
+coverImage: "./images/BD-Cover.jpg"
+images: ["./images/BD.jpg", "./images/BD1.jpg"]
 order: 8
 year: "2024"
 featured: false
