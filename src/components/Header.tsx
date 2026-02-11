@@ -124,7 +124,7 @@ export function Header() {
             <div className="md:hidden flex items-center gap-2">
               <button
                 onClick={() => setIsMenuOpen(true)}
-                className="p-2 rounded-full text-text-secondary hover:text-text-primary transition-colors"
+                className="p-3 -mr-1 rounded-full text-text-secondary hover:text-text-primary transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Open menu"
               >
                 <div className="w-5 h-5 flex flex-col justify-center gap-[5px]">
@@ -150,10 +150,10 @@ export function Header() {
             {/* Close button */}
             <button
               onClick={closeMenu}
-              className="absolute top-6 right-6 p-2 rounded-full text-text-secondary hover:text-text-primary transition-colors"
+              className="absolute top-5 right-5 p-3 rounded-full text-text-secondary hover:text-text-primary transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Close menu"
             >
-              <X size={20} strokeWidth={1.5} />
+              <X size={22} strokeWidth={1.5} />
             </button>
 
             <div className="flex flex-col items-center justify-center h-full gap-8">

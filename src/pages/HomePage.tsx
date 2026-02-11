@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, useScroll, useTransform, useAnimation } from 'framer-motion';
 import { Quote } from 'lucide-react';
@@ -96,7 +96,7 @@ function RecommendationsCarousel() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="w-[calc(50%-12px)] min-w-[320px] flex-shrink-0"
+            className="w-[85vw] md:w-[calc(50%-12px)] min-w-[280px] md:min-w-[320px] flex-shrink-0"
           >
             <div className="p-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm hover:border-white/[0.15] hover:bg-white/[0.04] transition-all duration-300">
               {/* Quote icon */}
@@ -112,6 +112,8 @@ function RecommendationsCarousel() {
                 <img
                   src={rec.image}
                   alt={rec.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-12 h-12 rounded-full object-cover border-2 border-white/[0.1]"
                 />
                 <div>
@@ -205,6 +207,22 @@ export function HomePage() {
     description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
   });
+
+  // Mobile detection for performance optimization
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reduced motion preference
+  const prefersReducedMotion = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
+
   // Diamond parallax scroll
   const worksRef = useRef<HTMLElement>(null);
   const { scrollYProgress: worksScroll } = useScroll({
@@ -234,10 +252,10 @@ export function HomePage() {
         className="relative min-h-screen flex flex-col justify-center overflow-hidden -mt-24"
         onMouseMove={handleMouseMove}
       >
-        {/* Glow behind sphere */}
+        {/* Glow behind sphere - responsive sizing */}
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
           <div
-            className="w-[700px] h-[700px] rounded-full blur-[120px] opacity-50"
+            className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] rounded-full blur-[60px] md:blur-[90px] lg:blur-[120px] opacity-50"
             style={{
               background: 'radial-gradient(circle, #8b5cf6 0%, #6366f1 30%, #3b82f6 60%, transparent 80%)',
             }}
@@ -251,7 +269,7 @@ export function HomePage() {
         >
           <ShaderGradientCanvas
             style={{ position: 'absolute', inset: 0 }}
-            pixelDensity={1.5}
+            pixelDensity={isMobile ? 0.75 : 1.25}
             fov={45}
             pointerEvents="none"
           >
@@ -259,8 +277,8 @@ export function HomePage() {
           </ShaderGradientCanvas>
         </motion.div>
 
-        {/* Blur layer to diffuse sphere into light glow */}
-        <div className="absolute inset-0 pointer-events-none backdrop-blur-2xl" />
+        {/* Blur layer to diffuse sphere into light glow - reduced on mobile */}
+        <div className="absolute inset-0 pointer-events-none backdrop-blur-lg md:backdrop-blur-2xl" />
 
         {/* Black blur overlay between sphere and content */}
         <div
@@ -386,39 +404,39 @@ export function HomePage() {
       {/* Featured Work Section */}
       <section ref={worksRef} className="relative z-10 bg-black">
         <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 overflow-y-clip">
-        {/* Diamond shapes background */}
-        <motion.div className="absolute pointer-events-none" style={{ top: '800px', right: '-450px', y: diamondY }}>
+        {/* Diamond shapes background - hidden on mobile for performance */}
+        <motion.div className="absolute pointer-events-none hidden md:block" style={{ top: '800px', right: '-450px', y: diamondY }}>
           {/* Solid glow layers */}
           <div
-            className="absolute top-1/2 left-1/2 w-[1500px] h-[1500px]"
+            className="absolute top-1/2 left-1/2 w-[800px] h-[800px] lg:w-[1500px] lg:h-[1500px]"
             style={{
               background: 'rgba(124, 58, 237, 0.25)',
               transform: 'translate(-50%, -50%) rotate(45deg)',
-              filter: 'blur(120px)',
+              filter: 'blur(80px)',
             }}
           />
           <div
-            className="absolute top-1/2 left-1/2 w-[1020px] h-[1020px]"
+            className="absolute top-1/2 left-1/2 w-[500px] h-[500px] lg:w-[1020px] lg:h-[1020px]"
             style={{
               background: 'rgba(99, 102, 241, 0.35)',
-              transform: 'translate(-50%, -50%) rotate(45deg)',
-              filter: 'blur(90px)',
-            }}
-          />
-          <div
-            className="absolute top-1/2 left-1/2 w-[560px] h-[560px]"
-            style={{
-              background: 'rgba(168, 85, 247, 0.45)',
               transform: 'translate(-50%, -50%) rotate(45deg)',
               filter: 'blur(60px)',
             }}
           />
           <div
-            className="absolute top-1/2 left-1/2 w-[180px] h-[180px]"
+            className="absolute top-1/2 left-1/2 w-[300px] h-[300px] lg:w-[560px] lg:h-[560px]"
+            style={{
+              background: 'rgba(168, 85, 247, 0.45)',
+              transform: 'translate(-50%, -50%) rotate(45deg)',
+              filter: 'blur(40px)',
+            }}
+          />
+          <div
+            className="absolute top-1/2 left-1/2 w-[100px] h-[100px] lg:w-[180px] lg:h-[180px]"
             style={{
               background: 'rgba(255, 255, 255, 0.35)',
               transform: 'translate(-50%, -50%) rotate(45deg)',
-              filter: 'blur(35px)',
+              filter: 'blur(25px)',
             }}
           />
           {/* Diamond line outlines */}
